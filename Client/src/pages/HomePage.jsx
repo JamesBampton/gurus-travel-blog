@@ -58,7 +58,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./icons.png"
+                src="./london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -76,7 +76,7 @@ const HomePage = () => {
               <h2>
                 LONDON
                 <br />
-                <span style={{ color: "#a05b2e" }}>BLANK</span>
+                <span style={{ color: "#a05b2e" }}>ENGLAND</span>
               </h2>
             </div>
           </div>
@@ -93,7 +93,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./ng-blue.png"
+                src="./london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -111,7 +111,7 @@ const HomePage = () => {
               <h2>
                 PARIS
                 <br />
-                <span>BLANK</span>
+                <span>FRANCE</span>
               </h2>
             </div>
           </div>
@@ -129,7 +129,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./ng-logo.png"
+                src="./london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -147,7 +147,7 @@ const HomePage = () => {
               <h2>
                 SYDNEY
                 <br />
-                <span>BLANK</span>
+                <span>AUSTRALIA</span>
               </h2>
             </div>
           </div>
@@ -165,7 +165,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./ng-log0.png"
+                src="./london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
