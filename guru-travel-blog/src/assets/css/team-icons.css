@@ -1,0 +1,117 @@
+.team-icons {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, 80%);
+	z-index: 3;
+	display: flex;
+	margin: 0;
+	padding: 0px;
+}
+
+/* trying to get tool tip to work on icons an be deleted */
+.team-icons .tooltip {
+  position: absolute;
+  display: inline-block;
+}
+
+.team-icons .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: black;
+  color: #blue;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.team-icons .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* trying to get tool tip to work on icons */
+
+.team-icons li {
+	list-style: none;
+}
+
+.team-icons li a {
+	position: relative;
+	display: block;
+	width: 30px;
+	height: 30px;
+	/*color: teal;*/
+	text-align: center;
+	background: #ffffff;
+	margin: 0 8px;
+	padding: 50px;
+	border-radius: 50%;
+	border: 1px;
+	border-color: #b388ff;
+	transition: 0.5s;
+	transform: translateY(250px);
+	opacity: 10;
+}
+
+
+.content .card:hover .team-icons li a {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.content .card .team-icons li a .fa {
+	transition: 0.4s;
+	font-size: 32px;
+	line-weight: 50px;
+}		
+
+/*.content .card .team-icons li a:hover .fa {
+	transform: rotateY(360deg);
+}*/
+
+
+.content .card .team-icons li:nth-child(1) a {
+	transition-delay: 0s;
+}
+
+.content .card .team-icons li:nth-child(2) a {
+	transition-delay: 0.2s;
+}
+
+.tooltip {
+	background-color: #49EEDC;
+	position: relative;
+	display: inline-block;
+	color: #FFFFFF;
+	border: 2px solid black;
+	padding: 10px;
+	font-size: 20px;
+	width: 100px;
+	/*bottom: 100%;*/
+	/*border-bottom: 1px dotted black;*/
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: black;
+  color: #blue;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
+	}
+
+.awsone-style {
+	vertical-align: middle;
+}

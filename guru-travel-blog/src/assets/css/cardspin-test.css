@@ -1,0 +1,113 @@
+.cardXL {
+	position: relative;
+	height: 35%;
+	width: 100%;
+	margin: 0 auto;
+	align-items: center;
+	/*align-self: center; removed and above used to align all items in the center*/
+	background: #009688;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 0px;
+	overflow: hidden;
+	text-align: center;
+	/*box-shadow: 0 5px 5px rgba(0,0,0,1.5);*/
+}
+
+.front {
+	position: absolute;
+	backface-visibility: hidden;
+	transform: rotateY(0deg);
+	transition: all 0.8s linear;
+	text-align: center;
+	border: 1px;
+	font: 20px/220px Georgia, Montserrat, sans-serif;
+	float: left;
+	margin-right: 0px;
+	width: 100%;
+	height: 230px;
+	/*height: 220px;*/
+	border-radius: 10px;
+	background: #fff;
+	
+}
+.projectcard:hover .front {
+  	transform: rotateY(0deg);
+}
+
+.projectcard:hover .back {
+  	transform: rotateY(180deg);
+}
+
+.back {
+	position: absolute;
+	frontface-visibility: hidden;
+	transform: rotateY(180deg);
+	transition: all 0.8s linear;
+	text-align: center;
+	/*border: 1px;*/
+	/*font: 20px/220px Georgia, Montserrat, sans-serif;*/
+	float: left;
+	margin-right: 0px;
+	width: 100%;
+	height: 230px;
+	/*height: 220px;*/
+	/*border-radius: 10px;*/
+	background: #fff;
+}
+
+
+.back h3 {
+	position: absolute;
+	font-family: Arial,Helvettica,sans-serif;
+	margin-right: 0px;
+	padding: 10px;
+	background: #fff;
+	/*color: #009688;*/
+	color: teal;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.card-font-small {
+	position: absolute;
+	height: 120px;
+	width: 100%;
+	color: teal;
+	text-align: left;
+	text-border: 0;
+	padding: 6px;
+	margin: 0px;
+}
+
+.card-font-small p {
+	color: teal;
+	height: 120px;
+	width: 100%;
+	text-align: left;
+	text-align: top;
+	text-border: 0;
+	margin: 0px;
+}
+
+/* This bit hides the faces so you do not see reverse*/
+
+.front, .back {
+	
+	backface-visibility: hidden;
+	position: absolute;
+	
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	
+}
+
+/* flip the pane when hovered */
+	.projectcard:hover .flipper, .projectcard.hover .flipper {
+		transform: rotateY(180deg);
+	}
+

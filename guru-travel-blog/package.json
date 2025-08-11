@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "bootstrap": "^5.3.7",
     "dotenv": "^17.2.1",
     "react": "^19.1.1",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.1",
     "sequelize": "^6.37.7"
   },

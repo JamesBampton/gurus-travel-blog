@@ -1,0 +1,199 @@
+.icons {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, 40%);
+	z-index: 3;
+	display: flex;
+	margin: 0;
+	padding: 0px;
+}
+
+.card-icons {
+	position: absolute;
+	top: 40%;
+	left: 46%;
+	transform: translate(-50%, 110%);
+	z-index: 3;
+	display: flex;
+	margin: 0;
+	padding: 0px;
+}
+
+/* trying to get tool tip to work on icons can be deleted */
+.icons .tooltip {
+  position: absolute;
+  display: inline-block;
+}
+
+.icons .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: black;
+  color: #blue;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.icons .tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.card-icons .tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+/* trying to get tool tip to work on icons */
+
+.icons li {
+	list-style: none;
+	margin: 0%;
+	padding-left: 0em;
+	padding-right: 0em;
+}
+
+.card-icons li {
+	list-style: none;
+}
+
+.icons li a {
+	position: relative;
+	display: block;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	background: #ffffff;
+	margin: 0 8px;
+	padding: 0px;
+	border-radius: 50%;
+	border: 1px;
+	border-color: #b388ff;
+	transition: 0.5s;
+	transform: translateY(250px);
+	opacity: 10;
+}
+
+.card-icons li a {
+	position: relative;
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	/*background: #ffffff;*/
+	margin: 0 8px;
+	padding: 0px;
+	border-radius: 50%;
+	border: 1px;
+	border-color: #b388ff;
+	transition: 0.5s;
+	transform: translateY(250px);
+	opacity: 10;
+	color: black;
+}
+
+.content .card:hover .icons li a {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.content .card:hover .card-icons li a {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.content .card .icons li a .fa {
+	transition: 0.4s;
+	font-size: 32px;
+}
+
+.content .card .card-icons li a .fa {
+	transition: 0.4s;
+	font-size: 32px;
+}
+
+
+/*Playing with icons*/
+.content .card:hover .icons li a {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.content .card:hover .card-icons li a {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+/*Playing with icons end*/
+
+/*.content .card .icons li a:hover .fa {
+	transform: rotateY(360deg);
+}*/
+
+
+.content .card .icons  li:nth-child(1) a {
+	transition-delay: 0s;
+}
+
+.content .card .icons  li:nth-child(2) a {
+	transition-delay: 0.1s;
+}
+
+.content .card .icons  li:nth-child(3) a {
+	transition-delay: 0.2s;
+}
+
+.content .card .icons  li:nth-child(4) a {
+	transition-delay: 0.3s;
+}
+
+.content .card .card-icons li:nth-child(1) a {
+	transition-delay: 0s;
+}
+
+.content .card .card-icons li:nth-child(2) a {
+	transition-delay: 0.2s;
+}
+
+.tooltip {
+	background-color: #49EEDC;
+	position: relative;
+	display: inline-block;
+	color: #FFFFFF;
+	border: 2px solid blue;
+	padding: 10px;
+	font-size: 20px;
+	width: 10px;
+	/*bottom: 100%;*/
+	/*border-bottom: 1px dotted black;*/
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: black;
+  color: #blue;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  
+}
+
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
+	}
+
+.awsone-style {
+	vertical-align: middle;
+}
+
+

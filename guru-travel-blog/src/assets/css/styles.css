@@ -1,0 +1,266 @@
+header {
+  width: 100%;
+  background-color: white;
+  color: white;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+p {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.active {
+  background-color: #4caf50;
+  color: black;
+}
+
+.active {
+  background-color: white;
+  color: black;
+}
+
+.scrollable {
+  height: 300px;
+  overflow: scroll;
+}
+
+.boximg img {
+  transition: 0.4s;
+}
+
+.boximg2 img {
+  transition: 0.4s;
+}
+
+.box:hover .boximg {
+  opacity: 0.4;
+}
+
+.footer-style {
+  background-color: white;
+}
+
+.grid-container-folio {
+  display: grid;
+  grid-template: "leftBox rightBox";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 500px 500px;
+  grid-gap: 0px;
+  background-color: white;
+  padding: 0px;
+  width: 100%;
+}
+
+.grid-item-folio {
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-container-folio > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.form-style {
+  font-size: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content-folio {
+  display: ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(1, minmax(200px, auto));
+  margin: 0 auto;
+  grid-gap: 10px;
+}
+
+.content-folio .layer {
+  position: absolute;
+  top: calc(100% -2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#ffffff, #cfd8dc);
+  z-index: 1;
+  opacity: 0.3;
+  transition: 0.5s;
+}
+
+.projectcontent {
+  display: ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /*grid-template-rows: repeat(1, minmax(200px, auto));*/
+  margin: 0 auto;
+  grid-gap: 10px;
+}
+
+.projectcontent .projectcard {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: #333;
+  padding: 0px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px;
+  border-radius: 20px;
+  background: teal;
+  -webkit-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.details {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: #fff;
+  z-index: 4;
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+  padding: 6px;
+  z-index: 1;
+}
+
+.details h2 {
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.details h2 span {
+  color: rgba(2, 40, 174, 0.9);
+  font-size: 12px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.box-padding {
+  margin-left: 5%;
+  padding-left: 0px;
+  margin-right: 5%;
+  padding-right: 0px;
+}
+
+.box2-padding {
+  margin-left: 10%;
+  padding-left: 0px;
+  margin-right: 10%;
+  padding-right: 0px;
+}
+
+/* Container holding the image and the floating text */
+.floating-box-test {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Centered text inside container*/
+.centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  padding: 0px;
+  font-size: 50px;
+  font-family: Montserrat, sans-serif;
+  transform: translate(-50%, -40%);
+  color: #d3d0ce;
+}
+
+/* Centered text inside carousel*/
+.carousel-centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  padding: 0px;
+  font-size: 50px;
+  font-family: Montserrat, sans-serif;
+  transform: translate(-50%, -40%);
+  background-color: rgba(0, 0, 0, 0.23);
+}
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  gap: 10px;
+  padding: 10px;
+}
+
+.carousel-item {
+  min-width: 200px;
+  height: 150px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.content .layer {
+  position: absolute;
+  top: calc(100% -2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgb(247, 246, 246), #d79d78);
+  z-index: 1;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.content .layer {
+  position: absolute;
+  top: calc(100% -2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content .card {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  background: #333;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}

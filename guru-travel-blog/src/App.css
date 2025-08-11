@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.background {
+  background-image: url("home-pack-back-1.jpg"); /* if in public folder */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
