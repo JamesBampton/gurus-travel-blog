@@ -14,8 +14,12 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         style={styles.conty}
       >
         <Navbar.Brand href="#home">
-          <img src="/nabar-brand2.png" alt="branding" style={styles.brand} />
-          <span style={styles.span}> GURU's - Travel Blog</span>
+          <img
+            src="Client\public\logo-sm.png"
+            alt="branding"
+            style={styles.brand}
+          />
+          <span style={styles.span}>FIND YOUR HAPPY PLACE</span>
         </Navbar.Brand>
         <Navbar.Toggle
           style={styles.toggler}
@@ -23,23 +27,23 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link onClick={() => onSetPage("web")}>
+            <Nav.Link onClick={() => onSetPage("home")}>
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("icons")}>
+            <Nav.Link onClick={() => onSetPage("blog")}>
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               BLOG
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("images")}>
+            <Nav.Link onClick={() => onSetPage("cities")}>
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               CITIES
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("docs")}>
+            <Nav.Link onClick={() => onSetPage("categories")}>
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               CATEGORIES
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("github")}>
+            <Nav.Link onClick={() => onSetPage("about")}>
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
@@ -72,8 +76,8 @@ const styles = {
   },
 
   brand: {
-    width: "70px",
-    height: "70px",
+    //width: "70px",
+    //height: "70px",
   },
   toggler: {
     background: "#a05b2e",
