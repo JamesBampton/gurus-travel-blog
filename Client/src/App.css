@@ -43,7 +43,42 @@
 }
 
 .backgroundImg {
-  background-image: url("../Client/public/home-pack-back-1.jpg"); /* if in public folder */
+  background-image: url("../Client/public/home-pack-back-torn.png"); /* if in public folder */
+  background-size: cover; /* or 'cover' depending on your goal */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundImgblog {
+  background-image: url("../Client/public/mountains-torn.png"); /* if in public folder */
+  background-size: cover; /* or 'cover' depending on your goal */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+.backgroundImg3cities {
+  background-image: url("../Client/public/ghent-torn.png"); /* if in public folder */
+  background-size: cover; /* or 'cover' depending on your goal */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundImgcategories {
+  background-image: url("../Client/public/palm-torn.png"); /* if in public folder */
+  background-size: cover; /* or 'cover' depending on your goal */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundImgabout {
+  background-image: url("../Client/public/hiking-torn.png"); /* if in public folder */
   background-size: cover; /* or 'cover' depending on your goal */
   background-repeat: no-repeat;
   background-position: center;

@@ -17,24 +17,11 @@ const IconsPage = () => {
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
             <br />
-            <br />
-            <br />
-            <br />
-            <div
-              className="centered myfontL"
-              style={{ backgroundImage: "url(${myImage})" }}
-            >
-              ICONS & LOGOS
-              <br />
-              <p className="myfontS">Designs</p>
-            </div>
-            <br />
-            <br />
+            <div className="backgroundImgabout"></div>
+            {/* places image in this location */}
             <br />
             <br />
           </div>
-          <br />
-          <br />
         </div>
       </div>
       <div>
@@ -71,11 +58,9 @@ const IconsPage = () => {
             </p>
             <div className="details">
               <h2>
-                ICON SET
+                SOME TEXT
                 <br />
-                <span style={{ color: "#a05b2e" }}>
-                  Designed for a network management system
-                </span>
+                <span style={{ color: "#a05b2e" }}>Some more text</span>
               </h2>
             </div>
           </div>
@@ -108,9 +93,9 @@ const IconsPage = () => {
             </p>
             <div className="details">
               <h2>
-                Application Logo
+                SOME TEXT
                 <br />
-                <span>Network Tool Brand logo</span>
+                <span>Some more text</span>
               </h2>
             </div>
           </div>
@@ -144,9 +129,9 @@ const IconsPage = () => {
             </p>
             <div className="details">
               <h2>
-                Application Logo
+                SOME TEXT
                 <br />
-                <span>Network Tool Brand logo</span>
+                <span>Some more text</span>
               </h2>
             </div>
           </div>
@@ -180,9 +165,9 @@ const IconsPage = () => {
             </p>
             <div className="details">
               <h2>
-                Application Logo
+                SOME TEXT
                 <br />
-                <span>Network Tool Brand logo</span>
+                <span>Some more text</span>
               </h2>
             </div>
           </div>
@@ -193,74 +178,7 @@ const IconsPage = () => {
       <br />
       <br />
       <br />
-      <div className="container-carousel">
-        <div id="myCarousel" className="carousel slide" data-ride="carousel">
-          {/* wrapper for indicators */}
-          <ol className="carousel-indicators" style={{ paddingTop: 200 }}>
-            <li
-              data-target="#myCarousel"
-              data-slide-to="0"
-              className="active"
-            ></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-          </ol>
-          {/* Wrapper for slides */}
-          <div className="mycarousel-inner">
-            <div className="item active" style={{ backgroundColor: "black" }}>
-              <div
-                className="carousel-content"
-                style={{ backgroundColor: "black" }}
-              >
-                {/* Testimonial 1 */}
-                <div className="carousel-card">
-                  <div className="layer"></div>
-                  <p
-                    className="w3-center quote-font"
-                    style={{ paddingBottom: 50, fontSize: 40 }}
-                  >
-                    <i>"Photoshop & Inkscape"</i>
-                  </p>
-                  <div className="details">
-                    <h2>
-                      NOTES
-                      <br />
-                      <span style={{ color: "#a05b2e" }}>
-                        Created with a mix of graphics packages
-                      </span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* ...other testimonials... */}
-            {/* Left and right controls */}
-            <a
-              className="left mycarousel-control"
-              href="#myCarousel"
-              data-slide="prev"
-            >
-              <img
-                src="./myglyph-left.png"
-                style={{ width: "30%", paddingTop: 80 }}
-              />
-              <span className="sr-only">Previous</span>
-            </a>
-            <a
-              className="right mycarousel-control"
-              href="#myCarousel"
-              data-slide="next"
-            >
-              <img
-                src="./myglyph-right.png"
-                style={{ width: "30%", paddingTop: 80, paddingLeft: 0 }}
-              />
-              <span className="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-        <br />
-      </div>
+      <br />
     </>
   );
 };

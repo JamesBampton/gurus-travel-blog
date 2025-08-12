@@ -18,12 +18,6 @@ const HomePage = () => {
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
             <br />
-            <div>
-              GURU's Travel Blog
-              <br />
-              <p className="myfontS">Life's Adventures</p>
-            </div>
-            <br />
             <div className="backgroundImg"></div>
             {/* places image in this location */}
             <br />
