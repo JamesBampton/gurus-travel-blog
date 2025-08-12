@@ -9,7 +9,7 @@ const Footer = () => {
           <li style={styles.list}>
             <strong>INSTAGRAM:</strong>
             {"blah blah blah "}
-            <a style={styles.contact} href="">
+            <a style={styles.contact} href="mailto:someone@gmail.com">
               +44 7887945460{" "}
             </a>
             <strong>EMAIL:</strong>{" "}

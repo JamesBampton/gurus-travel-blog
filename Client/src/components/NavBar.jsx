@@ -1,6 +1,7 @@
 import React from "react";
 //import { Link } from 'react-router-dom';
 import { Container, Navbar, Nav } from "react-bootstrap";
+import "../assets/css/navbar.css";
 
 const NavBar = ({ selectedPage, onSetPage }) => {
   //const [hover, setHover] = useState(false);
@@ -23,27 +24,23 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link onClick={() => onSetPage("web")}>
-              <img src="" alt="Portfolio" style={styles.icons} />
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
             <Nav.Link onClick={() => onSetPage("icons")}>
-              <img src="" alt="Home" style={styles.icons} />
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               BLOG
             </Nav.Link>
             <Nav.Link onClick={() => onSetPage("images")}>
-              <img src="" alt="Blog" style={styles.icons} />
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               CITIES
             </Nav.Link>
             <Nav.Link onClick={() => onSetPage("docs")}>
-              <img src="" alt="Categories" style={styles.icons} />
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               CATEGORIES
             </Nav.Link>
             <Nav.Link onClick={() => onSetPage("github")}>
-              <img
-                src="/git-but-sm2.png"
-                alt="Portfolio"
-                style={styles.icons2}
-              />
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
           </Nav>
@@ -59,6 +56,9 @@ const styles = {
     backgroundColor: "#333",
     color: "#000000",
     padding: "10px",
+  },
+  a: {
+    padding: "30px",
   },
   navfont: {
     paddingLeft: "20px",

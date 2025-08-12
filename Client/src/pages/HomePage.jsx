@@ -4,7 +4,6 @@ import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
 import "../assets/css/styles.css";
-import "../assets/css/team-icons.css";
 import "../assets/css/w3-theme-teal.css";
 import "../assets/css/carousel.css";
 import "../assets/css/cardspin-test.css";
@@ -19,25 +18,17 @@ const HomePage = () => {
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
             <br />
-            <br />
-            <br />
-            <br />
-            <div
-              className="backgroun"
-              style={{ backgroundImage: "url(${yImage})" }}
-            >
+            <div>
               GURU's Travel Blog
               <br />
               <p className="myfontS">Life's Adventures</p>
             </div>
             <br />
-            <div className="background"></div>
-            <br />
+            <div className="backgroundImg"></div>
+            {/* places image in this location */}
             <br />
             <br />
           </div>
-          <br />
-          <br />
         </div>
       </div>
       <div>
@@ -58,7 +49,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./london.png"
+                src="../Client/public/london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -93,7 +84,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./london.png"
+                src="../Client/public/london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -129,7 +120,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./london.png"
+                src="../Client/public/london.png"
                 className="w3-circle"
                 style={{
                   width: 160,
@@ -165,7 +156,7 @@ const HomePage = () => {
               }}
             >
               <img
-                src="./london.png"
+                src="../Client/public/london.png"
                 className="w3-circle"
                 style={{
                   width: 160,

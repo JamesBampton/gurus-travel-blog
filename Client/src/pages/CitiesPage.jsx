@@ -4,7 +4,6 @@ import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
 import "../assets/css/styles.css";
-import "../assets/css/team-icons.css";
 import "../assets/css/w3-theme-teal.css";
 import "../assets/css/carousel.css";
 import "../assets/css/cardspin-test.css";

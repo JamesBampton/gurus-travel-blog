@@ -4,8 +4,9 @@ import Footer from "./Footer";
 const pages = [
   { name: "Home", key: "home" },
   { name: "About", key: "about" },
-  { name: "Work", key: "work" },
-  { name: "LifeStyle", key: "life" },
+  { name: "Blog", key: "blog" },
+  { name: "Categories", key: "categories" },
+  { name: "Cities", key: "cities" },
 ];
 
 const Layout = ({ children, selectedPage, onSetPage }) => {

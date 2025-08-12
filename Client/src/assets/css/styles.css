@@ -264,3 +264,9 @@ p {
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
+
+.fullscreen-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
