@@ -52,19 +52,6 @@ const NavBar = ({ selectedPage, onSetPage }) => {
 
 // Inline styles for simplicity
 const styles = {
-  navbar: {
-    backgroundColor: "#333",
-    color: "#000000",
-    padding: "10px",
-  },
-  a: {
-    padding: "30px",
-  },
-  navfont: {
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    color: "#a05b2e",
-  },
   icons: {
     width: "100px",
     height: "100px",
