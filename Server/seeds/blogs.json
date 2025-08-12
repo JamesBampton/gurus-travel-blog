@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "blog_title": "Top 10 Beaches to Visit in 2025",
+    "blog_content": "Discover the most beautiful beaches you must visit this year, from pristine white sands to turquoise waters perfect for swimming and snorkeling.",
+    "thumbnail_image": "https://example.com/images/beach-2025.jpg",
+    "user_id": 1,
+    "category_id": 1
+  },
+  {
+    "id": 2,
+    "blog_title": "Hiking the Rocky Mountains: A Beginner's Guide",
+    "blog_content": "Essential tips for hiking safely and enjoying the breathtaking views of the Rocky Mountains.",
+    "thumbnail_image": "https://example.com/images/rocky-mountains.jpg",
+    "user_id": 2,
+    "category_id": 2
+  },
+  {
+    "id": 3,
+    "blog_title": "Exploring New York City in 3 Days",
+    "blog_content": "A perfect 3-day itinerary to make the most of your New York City adventure, including iconic spots and hidden gems.",
+    "thumbnail_image": "https://example.com/images/nyc-trip.jpg",
+    "user_id": 3,
+    "category_id": 3
+  },
+  {
+    "id": 4,
+    "blog_title": "5 Must-Try Street Foods Around the World",
+    "blog_content": "Take a culinary journey through the world's best street food scenes, from Bangkok to Mexico City.",
+    "thumbnail_image": "https://example.com/images/street-food.jpg",
+    "user_id": 4,
+    "category_id": 5
+  },
+  {
+    "id": 5,
+    "blog_title": "Ancient Ruins You Can Still Visit Today",
+    "blog_content": "Explore ancient civilizations through these incredible historical sites still open to visitors.",
+    "thumbnail_image": "https://example.com/images/ancient-ruins.jpg",
+    "user_id": 5,
+    "category_id": 6
+  },
+  {
+    "id": 6,
+    "blog_title": "Wildlife Watching in National Parks",
+    "blog_content": "Learn how to safely spot and enjoy wildlife in national parks around the globe.",
+    "thumbnail_image": "https://example.com/images/wildlife-parks.jpg",
+    "user_id": 6,
+    "category_id": 7
+  },
+  {
+    "id": 7,
+    "blog_title": "Packing Hacks for the Minimalist Traveler",
+    "blog_content": "Tips and tricks to pack light while still having everything you need for your trip.",
+    "thumbnail_image": "https://example.com/images/packing-hacks.jpg",
+    "user_id": 7,
+    "category_id": 8
+  },
+  {
+    "id": 8,
+    "blog_title": "Best Road Trips in the USA",
+    "blog_content": "Discover the most scenic road trips across the United States with stops you won’t forget.",
+    "thumbnail_image": "https://example.com/images/road-trip-usa.jpg",
+    "user_id": 8,
+    "category_id": 9
+  },
+  {
+    "id": 9,
+    "blog_title": "What to Expect on a Mediterranean Cruise",
+    "blog_content": "Everything you need to know about enjoying a cruise across the Mediterranean Sea.",
+    "thumbnail_image": "https://example.com/images/mediterranean-cruise.jpg",
+    "user_id": 9,
+    "category_id": 10
+  }
+]

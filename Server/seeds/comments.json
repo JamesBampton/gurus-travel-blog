@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "comment_content": "This place looks amazing! Adding it to my bucket list.",
+    "user_id": 2,
+    "blog_id": 1
+  },
+  {
+    "id": 2,
+    "comment_content": "I visited here last year, and your tips were spot on!",
+    "user_id": 3,
+    "blog_id": 1
+  },
+  {
+    "id": 3,
+    "comment_content": "Love the photos. Which camera did you use?",
+    "user_id": 1,
+    "blog_id": 2
+  },
+  {
+    "id": 4,
+    "comment_content": "The food here is incredible, I recommend the street markets!",
+    "user_id": 4,
+    "blog_id": 3
+  },
+  {
+    "id": 5,
+    "comment_content": "Thanks for sharing this itinerary. Super helpful.",
+    "user_id": 5,
+    "blog_id": 2
+  },
+  {
+    "id": 6,
+    "comment_content": "I never knew about this spot, looks like a hidden gem.",
+    "user_id": 2,
+    "blog_id": 4
+  },
+  {
+    "id": 7,
+    "comment_content": "Just booked my tickets after reading this!",
+    "user_id": 1,
+    "blog_id": 5
+  },
+  {
+    "id": 8,
+    "comment_content": "Could you also share some budget travel tips for this location?",
+    "user_id": 3,
+    "blog_id": 4
+  }
+]

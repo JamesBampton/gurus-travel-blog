@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "username": "wanderlust_jane",
+    "email": "jane@example.com",
+    "password": "password123",
+    "role": "author"
+  },
+  {
+    "id": 2,
+    "username": "globetrotter_tom",
+    "email": "tom@example.com",
+    "password": "password123",
+    "role": "author"
+  },
+  {
+    "id": 3,
+    "username": "beach_bum_sam",
+    "email": "sam@example.com",
+    "password": "password123",
+    "role": "reader"
+  },
+  {
+    "id": 4,
+    "username": "adventure_amy",
+    "email": "amy@example.com",
+    "password": "password123",
+    "role": "author"
+  },
+  {
+    "id": 5,
+    "username": "city_chris",
+    "email": "chris@example.com",
+    "password": "password123",
+    "role": "reader"
+  },
+  {
+    "id": 6,
+    "username": "nature_nina",
+    "email": "nina@example.com",
+    "password": "password123",
+    "role": "reader"
+  },
+  {
+    "id": 7,
+    "username": "history_hank",
+    "email": "hank@example.com",
+    "password": "password123",
+    "role": "author"
+  },
+  {
+    "id": 8,
+    "username": "foodie_faiz",
+    "email": "faiz@example.com",
+    "password": "password123",
+    "role": "reader"
+  }
+]
