@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import "../assets/css/navbar.css";
 
@@ -47,6 +47,47 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
+            {/* Divider */}
+            <div
+              style={{
+                borderLeft: "1px solid #ccc",
+                height: "40px",
+                margin: "0 22px",
+              }}
+            />
+            <Nav.Link
+              onClick={() => onSetPage("login")}
+              style={{
+                backgroundColor: "#008000",
+                color: "#fff",
+                padding: "6px 12px",
+                //fontWeight: "bold",
+                marginRight: "6px",
+                marginBottom: "6px",
+              }}
+            >
+              LOGIN
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => onSetPage("register")}
+              style={{
+                backgroundColor: "#008000",
+                color: "#fff",
+                padding: "6px 12px",
+                //fontWeight: "bold",
+                marginRight: "6px",
+                marginBottom: "6px",
+              }}
+            >
+              REGISTER
+            </Nav.Link>
+
+            {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
+              LOGIN
+            </Nav.Link>
+            <Nav.Link as={Link} to="/register" className="btn btn-primary">
+              REGISTER
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -54,7 +95,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
   );
 };
 
-// Inline styles for simplicity
+// Inline styles
 const styles = {
   icons: {
     width: "100px",
