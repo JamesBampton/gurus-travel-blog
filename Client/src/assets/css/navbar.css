@@ -1,10 +1,5 @@
 .navbar {
-  position: "sticky",     
-  zIndex: 1020,           
-  backgroundColor: "#333",
-  color: "#000000",
-  padding: "10px",
-  height: "120px",
+  position: sticky;
 }
 nav a {
   padding: 30px;
@@ -29,5 +24,3 @@ nav a {
   color: white !important;
   background-color: #11b944 !important;
 }
-
-
