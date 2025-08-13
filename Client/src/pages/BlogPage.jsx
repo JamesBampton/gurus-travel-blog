@@ -22,6 +22,11 @@ const IconsPage = () => {
             <br />
             <br />
           </div>
+          <div class="centered2 myfontL">
+            {" "}
+            ARTICLES<br></br>
+            <p class="myfontS">From travel Gurus...</p>
+          </div>
         </div>
       </div>
       <div>

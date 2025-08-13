@@ -52,6 +52,12 @@ p {
   background-color: white;
 }
 
+.myfontS {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+
 .grid-container-folio {
   display: grid;
   grid-template: "leftBox rightBox";
@@ -186,13 +192,36 @@ p {
 /* Centered text inside container*/
 .centered {
   position: absolute;
-  top: 80%;
+  top: 130%;
   left: 50%;
-  padding: 0px;
+  padding: 5px;
   font-size: 50px;
   font-family: Montserrat, sans-serif;
-  transform: translate(-50%, -40%);
-  color: #d3d0ce;
+  transform: translate(-50%, -270%);
+  color: #024102;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  /*border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for a polished look */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+/* Centered text inside container with darker backgrounds*/
+.centered2 {
+  position: absolute;
+  /*top: 500%;*/
+  left: 50%;
+  padding: 5px;
+  font-size: 50px;
+  font-family: Montserrat, sans-serif;
+  transform: translate(-50%, -270%);
+  color: #024102;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  /*border: 1px solid rgba(255, 255, 255, 0.3); Optional border for a polished look */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
 }
 
 /* Centered text inside carousel*/

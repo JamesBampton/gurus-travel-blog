@@ -15,4 +15,19 @@ nav a {
   color: #a05b2e;
 }
 
+.nav-link {
+  color: #333;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: #d0d4da;
+}
+
+.active-nav {
+  color: white !important;
+  background-color: #11b944 !important;
+}
+
 
