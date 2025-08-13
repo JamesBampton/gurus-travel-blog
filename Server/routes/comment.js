@@ -6,14 +6,20 @@ const { Comment, User } = require("../models");
 router.post("/", authMiddleware, async (req, res) => {
   try {
     const { comment_content, blog_id } = req.body;
-    const comment = await Comment.create({
+
+    if (!comment_content || !blog_id) {
+      return res.status(400).json({ message: "Comment content and blog_id are required" });
+    }
+
+    const newComment = await Comment.create({
       comment_content,
       user_id: req.user.id,
-      blog_id
+      blog_id,
     });
-    res.status(201).json(comment);
+
+    res.status(201).json(newComment);
   } catch (error) {
-    res.status(500).json({ message: "Error adding comment", error });
+    res.status(500).json({ message: "Error adding comment", error: error.message });
   }
 });
 
@@ -22,23 +28,35 @@ router.get("/blog/:blog_id", async (req, res) => {
   try {
     const comments = await Comment.findAll({
       where: { blog_id: req.params.blog_id },
-      include: [User]
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username", "email"], // choose user fields you want to expose
+        },
+      ],
+      order: [["id", "ASC"]],
     });
+
     res.json(comments);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving comments", error });
+    res.status(500).json({ message: "Error retrieving comments", error: error.message });
   }
 });
 
-// Delete comment (only owner)
+// Delete comment (only by owner)
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
-    const deleted = await Comment.destroy({
-      where: { id: req.params.id, user_id: req.user.id }
+    const deletedRows = await Comment.destroy({
+      where: { id: req.params.id, user_id: req.user.id },
     });
-    res.json(deleted);
+
+    if (deletedRows === 0) {
+      return res.status(404).json({ message: "Comment not found or unauthorized" });
+    }
+
+    res.json({ message: "Comment deleted successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Error deleting comment" });
+    res.status(500).json({ message: "Error deleting comment", error: error.message });
   }
 });
 

@@ -6,10 +6,14 @@ const { Category } = require("../models");
 router.post("/", authMiddleware, async (req, res) => {
   try {
     const { category_name } = req.body;
-    const category = await Category.create({ category_name });
-    res.status(201).json(category);
+    if (!category_name) {
+      return res.status(400).json({ message: "Category name is required" });
+    }
+
+    const newCategory = await Category.create({ category_name });
+    res.status(201).json(newCategory);
   } catch (error) {
-    res.status(500).json({ message: "Error adding category", error });
+    res.status(500).json({ message: "Error adding category", error: error.message });
   }
 });
 
@@ -19,7 +23,7 @@ router.get("/", async (req, res) => {
     const categories = await Category.findAll();
     res.json(categories);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving categories", error });
+    res.status(500).json({ message: "Error retrieving categories", error: error.message });
   }
 });
 
@@ -27,9 +31,14 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id);
+
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
     res.json(category);
   } catch (error) {
-    res.status(500).json({ error: "Error retrieving category" });
+    res.status(500).json({ message: "Error retrieving category", error: error.message });
   }
 });
 
@@ -37,23 +46,38 @@ router.get("/:id", async (req, res) => {
 router.put("/:id", authMiddleware, async (req, res) => {
   try {
     const { category_name } = req.body;
-    const updated = await Category.update(
+
+    if (!category_name) {
+      return res.status(400).json({ message: "Category name is required" });
+    }
+
+    const [updatedRows] = await Category.update(
       { category_name },
       { where: { id: req.params.id } }
     );
-    res.json(updated);
+
+    if (updatedRows === 0) {
+      return res.status(404).json({ message: "Category not found or no change made" });
+    }
+
+    res.json({ message: "Category updated successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Error updating category" });
+    res.status(500).json({ message: "Error updating category", error: error.message });
   }
 });
 
 // Delete category
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
-    const deleted = await Category.destroy({ where: { id: req.params.id } });
-    res.json(deleted);
+    const deletedRows = await Category.destroy({ where: { id: req.params.id } });
+
+    if (deletedRows === 0) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    res.json({ message: "Category deleted successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Error deleting category" });
+    res.status(500).json({ message: "Error deleting category", error: error.message });
   }
 });
 

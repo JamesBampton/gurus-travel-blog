@@ -1,55 +1,75 @@
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
 const { User } = require("../models");
 const { signToken, authMiddleware } = require("../utils/auth");
 
-// Register
+// Register new user
 router.post("/register", async (req, res) => {
   try {
-    const { first_name, last_name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
-      first_name,
-      last_name,
-      email,
-      password: hashedPassword
-    });
+    if (!username || !email || !password) {
+      return res.status(400).json({ message: "Username, email and password are required" });
+    }
 
-    const token = signToken(user);
-    res.status(201).json({ token, user });
+    // Check if user/email already exists
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(409).json({ message: "Email already in use" });
+    }
+
+    const user = await User.create({ username, email, password }); // password will be hashed by hook
+
+    // Create JWT token
+    const token = signToken({ id: user.id, username: user.username, email: user.email });
+
+    // Exclude password from returned user data
+    const userData = user.get({ plain: true });
+    delete userData.password;
+
+    res.status(201).json({ token, user: userData });
   } catch (error) {
-    res.status(500).json({ message: "Error registering user", error });
+    res.status(500).json({ message: "Error registering user", error: error.message });
   }
 });
 
-// Login
+// Login existing user
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
 
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
+    const user = await User.findOne({ where: { email } });
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = user.checkPassword(password);
     if (!validPassword) return res.status(401).json({ message: "Invalid credentials" });
 
-    const token = signToken(user);
-    res.json({ token, user });
+    const token = signToken({ id: user.id, username: user.username, email: user.email });
+
+    const userData = user.get({ plain: true });
+    delete userData.password;
+
+    res.json({ token, user: userData });
   } catch (error) {
-    res.status(500).json({ message: "Error logging in", error });
+    res.status(500).json({ message: "Error logging in", error: error.message });
   }
 });
 
-// Get current user
+// Get current logged-in user
 router.get("/me", authMiddleware, async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id, {
-      attributes: { exclude: ["password"] }
+      attributes: { exclude: ["password"] },
     });
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
     res.json(user);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving user", error });
+    res.status(500).json({ message: "Error retrieving user", error: error.message });
   }
 });
 
