@@ -22,11 +22,17 @@ const IconsPage = () => {
             <br />
             <br />
           </div>
+          <div class="centered2 myfontL">
+            {" "}
+            ARTICLES<br></br>
+            <p class="myfontS">From travel Gurus...</p>
+          </div>
         </div>
       </div>
       <div>
         <br />
         <br />
+
         <div className="content">
           {/* NG CARD */}
           <div className="card">
@@ -64,6 +70,7 @@ const IconsPage = () => {
               </h2>
             </div>
           </div>
+
           <div className="card">
             <div className="layer"></div>
             <p

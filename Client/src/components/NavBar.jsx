@@ -1,5 +1,6 @@
-import React from "react";
-//import { Link } from 'react-router-dom';
+//import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import "../assets/css/navbar.css";
 
@@ -27,26 +28,89 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link onClick={() => onSetPage("home")}>
+            <Nav.Link
+              onClick={() => onSetPage("home")}
+              active={selectedPage === "home"}
+              style={selectedPage === "home" ? styles.activeLink : undefined}
+            >
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("blog")}>
+            <Nav.Link
+              onClick={() => onSetPage("blog")}
+              active={selectedPage === "blog"}
+              style={selectedPage === "blog" ? styles.activeLink : undefined}
+            >
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               BLOG
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("cities")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            {/* <Nav.Link
+              onClick={() => onSetPage("cities")}
+              active={selectedPage === "cities"}
+              style={selectedPage === "cities" ? styles.activeLink : undefined}
+            >
+              
               CITIES
-            </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("categories")}>
+            </Nav.Link> */}
+            <Nav.Link
+              onClick={() => onSetPage("categories")}
+              active={selectedPage === "categories"}
+              style={
+                selectedPage === "categories" ? styles.activeLink : undefined
+              }
+            >
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               CATEGORIES
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("about")}>
+            <Nav.Link
+              onClick={() => onSetPage("about")}
+              active={selectedPage === "about"}
+              style={selectedPage === "about" ? styles.activeLink : undefined}
+            >
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
+            {/* Divider */}
+            <div
+              style={{
+                //borderLeft: "1px solid #ccc",
+                //height: "40px",
+                margin: "0 22px",
+              }}
+            />
+            <Nav.Link
+              onClick={() => onSetPage("login")}
+              style={{
+                backgroundColor: "#008000",
+                color: "#fff",
+                padding: "6px 12px",
+                //fontWeight: "bold",
+                marginRight: "6px",
+                marginBottom: "6px",
+              }}
+            >
+              LOGIN
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => onSetPage("register")}
+              style={{
+                backgroundColor: "#008000",
+                color: "#fff",
+                padding: "6px 12px",
+                //fontWeight: "bold",
+                marginRight: "6px",
+                marginBottom: "6px",
+              }}
+            >
+              REGISTER
+            </Nav.Link>
+
+            {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
+              LOGIN
+            </Nav.Link>
+            <Nav.Link as={Link} to="/register" className="btn btn-primary">
+              REGISTER
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -54,7 +118,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
   );
 };
 
-// Inline styles for simplicity
+// Inline styles
 const styles = {
   icons: {
     width: "100px",
@@ -88,6 +152,12 @@ const styles = {
   },
   conty: {
     marginLeft: "26px",
+  },
+
+  activeLink: {
+    fontWeight: "bold",
+    color: "#008000",
+    borderBottom: "1px solid #008000",
   },
 };
 
