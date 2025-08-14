@@ -30,13 +30,14 @@ Blog.init(
         key: "id",
       },
     },
-    category_id: {
+     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "category",
         key: "id",
       },
+      onDelete: 'SET NULL'
     },
   },
   {
