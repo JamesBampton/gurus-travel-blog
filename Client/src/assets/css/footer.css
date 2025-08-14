@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: #fff;
-  color: #828682;
+  color: #8d522e;
   padding: 2rem;
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +18,7 @@
 .footer-box h4 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  color: #32702a;
+  color: #2cacac;
 }
 
 .footer-box ul {
@@ -31,7 +31,7 @@
 }
 
 .footer-box a {
-  color: #828682;
+  color: #8d522e;
   text-decoration: none;
 }
 
@@ -39,8 +39,27 @@
   text-decoration: underline;
 }
 
+.social-icons {
+  padding-top: 30px;
+}
+
 .social-icons a {
   margin-right: 1rem;
   padding-right: 0px;
-  color: #9de3a8;
+  color: #313d53;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
 }

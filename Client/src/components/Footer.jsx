@@ -42,14 +42,14 @@ const Footer = () => {
           <h4>Gurus Travel Blog</h4>
           <p>Exploring the world, one story at a time.</p>
           <div className="social-icons">
-            <a href="#" class="fa-brands fa-twitter fa-2x">
-              <p>
-                <span style={styles.span}> Twitter</span>
-              </p>
-            </a>
             <a href="#" class="fab fa-facebook-f fa-2x">
               <p>
                 <span style={styles.span}> Facebook</span>
+              </p>
+            </a>
+            <a href="#" class="fa-brands fa-twitter fa-2x">
+              <p>
+                <span style={styles.span}> Twitter</span>
               </p>
             </a>
             <a href="#" class="fab fa-instagram fa-2x">
@@ -67,13 +67,17 @@ const Footer = () => {
           <p>Location: Hampshire, UK</p>
         </div>
       </footer>
-      <img
-        src="Client\public\logo-lg.png"
-        alt="branding"
-        style={styles.brandy}
-      ></img>
-      <p>
+      <div className="flexContainer">
+        <div>
+          <img
+            src="Client\public\logo-sm.png"
+            alt="branding"
+            style={styles.brandy}
+          ></img>
+        </div>
         <hr style={styles.bar}></hr>
+      </div>
+      <p>
         &copy; 2025 Guru's of the Apocolypse React Application. All rights
         reserved.
       </p>
@@ -93,12 +97,17 @@ const styles = {
     marginLeft: "25%",
   },
 
-  brandy: {
+  /*   flexContainer: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center" /* Vertical alignment */,
-    height: "10%",
   },
+
+  flexContainer,
+  div: {
+    backgroundColor: "#fff",
+    width: "100px",
+    margin: "10px",
+  }, */
 };
 
 export default Footer;
