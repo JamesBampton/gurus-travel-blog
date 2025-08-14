@@ -34,7 +34,22 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+/* Highlight active nav links */
+.navbar .nav-link.active {
+  color: #a05b2e;       /* Your theme color */
+  font-weight: bold;
+  border-bottom: 2px solid #a05b2e; /* Optional underline */
+}
 
+/* Default nav link style */
+.navbar .nav-link {
+  color: #333; /* Normal color */
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #a05b2e; /* Hover color */
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;

@@ -1,11 +1,12 @@
+import { useSession } from "../contexts/SessionContext";
 import React from "react";
-//import { Link } from 'react-router-dom';
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../assets/css/navbar.css";
 
-const NavBar = ({ selectedPage, onSetPage }) => {
-  //const [hover, setHover] = useState(false);
-
+const NavBar = () => {
+  const { user, login, logout } = useSession();// Added session handling
+  const navigate = useNavigate(); 
   return (
     <Navbar expand="lg" style={styles.navbar} className="navbar navbar-light">
       <Container
@@ -13,9 +14,9 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         className="d-flex justify-content-between align-items-center"
         style={styles.conty}
       >
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={NavLink} to="/">
           <img
-            src="Client\public\logo-sm.png"
+            src="/Client/public/logo-sm.png"
             alt="branding"
             style={styles.brand}
           />
@@ -27,26 +28,28 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link onClick={() => onSetPage("home")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/" end>
               HOME
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("blog")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/blog">
               BLOG
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("cities")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/cities">
               CITIES
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("categories")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/categories">
               CATEGORIES
             </Nav.Link>
-            <Nav.Link onClick={() => onSetPage("about")}>
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/about">
               ABOUT
             </Nav.Link>
+            
+            {/* LOGIN / LOGOUT button */}
+            {user ? (
+            <Nav.Link onClick={logout}>LOGOUT</Nav.Link>
+            ) : (
+            <Nav.Link onClick={() => navigate("/login")}>LOGIN</Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -54,31 +57,8 @@ const NavBar = ({ selectedPage, onSetPage }) => {
   );
 };
 
-// Inline styles for simplicity
 const styles = {
-  icons: {
-    width: "100px",
-    height: "100px",
-    transform: "translateY(67px)",
-    transition: "transform 0.3s ease",
-  },
-  hover: {
-    transform: "scale(1.2)",
-    transition: "0.7s ease",
-  },
-
-  icons2: {
-    width: "100px",
-    height: "100px",
-    transform: "translateY(67px)",
-    transition: "transform 0.3s ease",
-    marginBottom: "0px",
-  },
-
-  brand: {
-    //width: "70px",
-    //height: "70px",
-  },
+  brand: {},
   toggler: {
     background: "#a05b2e",
   },

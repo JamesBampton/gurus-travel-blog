@@ -5,16 +5,17 @@ const { Blog, User, Category, Comment } = require("../models");
 // Create blog post
 router.post("/", authMiddleware, async (req, res) => {
   try {
-    const { title, content, category_id } = req.body;
-    const blog = await Blog.create({
-      title,
-      content,
+    const { blog_title, blog_content, category_id } = req.body;
+
+    const newBlog = await Blog.create({
+      blog_title,
+      blog_content,
       category_id,
-      user_id: req.user.id
+      user_id: req.user.id,
     });
-    res.status(201).json(blog);
+    res.status(201).json(newBlog);
   } catch (error) {
-    res.status(500).json({ message: "Error creating blog post", error });
+     res.status(500).json({ message: "Error creating blog post", error: error.message });
   }
 });
 
@@ -22,11 +23,24 @@ router.post("/", authMiddleware, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const blogs = await Blog.findAll({
-      include: [User, Category, Comment]
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username", "email"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "category_name"],
+        },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["id", "username"] }],
+        },
+      ],
     });
     res.json(blogs);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving blogs", error });
+    res.status(500).json({ message: "Error retrieving blogs", error:error.message });
   }
 });
 
@@ -34,37 +48,71 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const blog = await Blog.findByPk(req.params.id, {
-      include: [User, Category, Comment]
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username", "email"],
+        },
+        {
+          model: Category,
+          attributes: ["id", "category_name"],
+        },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["id", "username"] }],
+        },
+      ],
     });
+      if (!blog) {
+      return res.status(404).json({ message: "Blog post not found" });
+    }
+
     res.json(blog);
   } catch (error) {
-    res.status(500).json({ error: "Error retrieving blog post" });
+    res.status(500).json({ error: "Error retrieving blog post", error:error.message });
   }
 });
 
 // Update blog post
 router.put("/:id", authMiddleware, async (req, res) => {
   try {
-    const { title, content, category_id } = req.body;
-    const updated = await Blog.update(
-      { title, content, category_id },
-      { where: { id: req.params.id, user_id: req.user.id } }
+    const { blog_title, blog_content, category_id } = req.body;
+
+    const [updatedRows] = await Blog.update(
+      { blog_title, blog_content, category_id },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.user.id,
+        },
+      }
     );
-    res.json(updated);
+    
+    if (updatedRows === 0) {
+      return res.status(404).json({ message: "Blog post not found or unauthorized" });
+    }
+
+    res.json({ message: "Blog post updated successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Error updating blog post" });
+    res.status(500).json({ message: "Error updating blog post", error: error.message });
   }
 });
 
 // Delete blog post
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
-    const deleted = await Blog.destroy({
-      where: { id: req.params.id, user_id: req.user.id }
-    });
-    res.json(deleted);
-  } catch (error) {
-    res.status(500).json({ error: "Error deleting blog post" });
+      const deletedRows = await Blog.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.user.id,
+      },
+});
+  if (deletedRows === 0) {
+      return res.status(404).json({ message: "Blog post not found or unauthorized" });
+    }
+res.json({ message: "Blog post deleted successfully" });
+ } catch (error) {
+    res.status(500).json({ message: "Error deleting blog post", error: error.message });
   }
 });
 

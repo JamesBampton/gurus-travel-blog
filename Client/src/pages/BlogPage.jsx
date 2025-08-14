@@ -1,5 +1,8 @@
 // HomePage.js
-import React from "react";
+import { useSession } from "../contexts/SessionContext"; 
+import React, { useState } from "react";
+import { Modal, Button, Form } from "react-bootstrap"; // import Modal components
+//import React from "react";
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -11,6 +14,10 @@ import "../assets/css/flip.css";
 
 // ...existing code...
 const IconsPage = () => {
+  const { user } = useSession(); // get current logged-in user
+  const [showModal, setShowModal] = useState(false); // state to show/hide modal
+  const handleOpen = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
   return (
     <>
       <div id="dashboard" className="content2 grid-containerink">
@@ -27,6 +34,46 @@ const IconsPage = () => {
       <div>
         <br />
         <br />
+        
+        {/* Create Button - only visible if logged in */}
+        {user && (
+        <div style={{ textAlign: "right", marginBottom: "20px" }}>
+          <Button variant="primary" onClick={handleOpen}>
+            Create Blog
+          </Button>
+        </div>
+      )}
+
+      {/* Modal for Create Blog */}
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Blog</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="blogTitle">
+              <Form.Label>Title</Form.Label>
+              <Form.Control type="text" placeholder="Enter blog title" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="blogContent">
+              <Form.Label>Content</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Write your blog content"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => { /* handle submit */ }}>
+            Save Blog
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <div className="content">
           {/* NG CARD */}
           <div className="card">

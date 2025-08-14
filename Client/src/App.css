@@ -85,3 +85,11 @@
   width: 100vw;
   height: 100vh;
 }
+backgroundImgSpare {
+  background-image: url("../Client/public/map1.jpg"); /* if in public folder */
+  background-size: cover; /* or 'cover' depending on your goal */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
