@@ -1,11 +1,15 @@
 //import React from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSession } from "../contexts/SessionContext"; //ADDED FROM SRAVYA
+import { NavLink, useNavigate } from "react-router-dom"; //ADDED FROM SRAVYA
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/css/navbar.css";
 
-const NavBar = ({ selectedPage, onSetPage }) => {
+const NavBar = () => {
   //const [hover, setHover] = useState(false);
+  const { user, login, logout } = useSession(); //ADDED FROM SRAVYA
+  const navigate = useNavigate(); //ADDED FROM SRAVYA
 
   return (
     <Navbar expand="lg" style={styles.navbar} className="navbar navbar-light">
@@ -14,7 +18,10 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         className="d-flex justify-content-between align-items-center"
         style={styles.conty}
       >
-        <Navbar.Brand href="#home">
+        {/*<Navbar.Brand href="#home">*/}
+        <Navbar.Brand as={NavLink} to="/">
+          {" "}
+          {/* //ADDED FROM SRAVYA */}
           <img
             src="Client\public\logo-sm.png"
             alt="branding"
@@ -30,20 +37,17 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link
-              onClick={() => onSetPage("home")}
+              as={NavLink}
+              to="/"
+              end
+              /* onClick={() => onSetPage("home")}
               active={selectedPage === "home"}
-              style={selectedPage === "home" ? styles.activeLink : undefined}
+              style={selectedPage === "home" ? styles.activeLink : undefined} */
             >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
 
-            <Nav.Link
-              onClick={() => onSetPage("blog")}
-              active={selectedPage === "blog"}
-              style={selectedPage === "blog" ? styles.activeLink : undefined}
-            >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+            <Nav.Link as={NavLink} to="/blog">
               BLOG
             </Nav.Link>
 
@@ -55,131 +59,44 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               CITIES
             </Nav.Link> */}
 
-            <NavDropdown
-              title="CATEGORIES"
-              id="categories-dropdown"
-              active={selectedPage === "categories"}
-              style={
-                selectedPage === "categories" ? styles.activeLink : undefined
-              }
-            >
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+            <NavDropdown title="CATEGORIES" id="categories-dropdown">
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Adventure
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Coastal
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Cultural
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Wildlife
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Food
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 History
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Nature
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Road Trips
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Luxury Travel
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                onClick={() => onSetPage("sparepage")}
-                active={selectedPage === "sparepage"}
-                style={
-                  selectedPage === "sparepage"
-                    ? styles.activeLinkSub
-                    : undefined
-                }
-              >
+              <NavDropdown.Item as={NavLink} to="/blog">
                 Budget Travel
               </NavDropdown.Item>
             </NavDropdown>
@@ -195,11 +112,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               CATEGORIES
             </Nav.Link>
  */}
-            <Nav.Link
-              onClick={() => onSetPage("about")}
-              active={selectedPage === "about"}
-              style={selectedPage === "about" ? styles.activeLink : undefined}
-            >
+            <Nav.Link as={NavLink} to="/about">
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
@@ -213,7 +126,8 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               }}
             />
             <Nav.Link
-              onClick={() => onSetPage("login")}
+              as={NavLink}
+              to="/login"
               style={{
                 backgroundColor: "#008000",
                 color: "#fff",
@@ -226,7 +140,8 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               LOGIN
             </Nav.Link>
             <Nav.Link
-              onClick={() => onSetPage("register")}
+              as={NavLink}
+              to="/register"
               style={{
                 backgroundColor: "#008000",
                 color: "#fff",
