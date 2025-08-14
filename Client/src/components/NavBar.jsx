@@ -23,7 +23,7 @@ const NavBar = () => {
           {" "}
           {/* //ADDED FROM SRAVYA */}
           <img
-            src="Client\public\logo-sm.png"
+            src="\public\logo-sm.png"
             alt="branding"
             style={styles.brand}
           />

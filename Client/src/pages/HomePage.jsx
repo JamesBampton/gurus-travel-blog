@@ -23,10 +23,10 @@ const HomePage = () => {
             <br />
             <br />
           </div>
-          <div class="centered myfontL">
+          <div className="centered myfontL">
             {" "}
             WELCOME<br></br>
-            <p class="myfontS">The Gurus blog page...</p>
+            <p className="myfontS">The Gurus blog page...</p>
           </div>
         </div>
       </div>
