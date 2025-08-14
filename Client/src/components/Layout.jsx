@@ -7,6 +7,7 @@ const pages = [
   { name: "Blog", key: "blog" },
   { name: "Categories", key: "categories" },
   { name: "Cities", key: "cities" },
+  { name: "SparePage", key: "sparepage" },
 ];
 
 const Layout = ({ children, selectedPage, onSetPage }) => {
