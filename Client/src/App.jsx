@@ -7,6 +7,7 @@ import CitiesPage from "./pages/CitiesPage";
 import AboutPage from "./pages/AboutPage";
 import BlogPage from "./pages/BlogPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import SparePage from "./pages/SparePage";
 
 function App() {
   const [page, setPage] = useState("home");
@@ -23,6 +24,7 @@ function App() {
       {page === "cities" && <CitiesPage />}
       {page === "categories" && <CategoriesPage />}
       {page === "about" && <AboutPage />}
+      {page === "sparepage" && <SparePage />}
     </Layout>
   );
 }

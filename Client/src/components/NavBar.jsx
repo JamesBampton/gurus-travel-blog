@@ -1,7 +1,7 @@
 //import React from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/css/navbar.css";
 
 const NavBar = ({ selectedPage, onSetPage }) => {
@@ -26,6 +26,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
           style={styles.toggler}
           aria-controls="basic-navbar-nav"
         />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link
@@ -36,6 +37,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
+
             <Nav.Link
               onClick={() => onSetPage("blog")}
               active={selectedPage === "blog"}
@@ -44,24 +46,155 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               BLOG
             </Nav.Link>
+
             {/* <Nav.Link
               onClick={() => onSetPage("cities")}
               active={selectedPage === "cities"}
               style={selectedPage === "cities" ? styles.activeLink : undefined}
             >
-              
               CITIES
             </Nav.Link> */}
-            <Nav.Link
+
+            <NavDropdown
+              title="CATEGORIES"
+              id="categories-dropdown"
+              active={selectedPage === "categories"}
+              style={
+                selectedPage === "categories" ? styles.activeLink : undefined
+              }
+            >
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Adventure
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Coastal
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Cultural
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Wildlife
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Food
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                History
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Nature
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Road Trips
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Luxury Travel
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                onClick={() => onSetPage("sparepage")}
+                active={selectedPage === "sparepage"}
+                style={
+                  selectedPage === "sparepage"
+                    ? styles.activeLinkSub
+                    : undefined
+                }
+              >
+                Budget Travel
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            {/*    <Nav.Link
               onClick={() => onSetPage("categories")}
               active={selectedPage === "categories"}
               style={
                 selectedPage === "categories" ? styles.activeLink : undefined
               }
             >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+              {/*<img src="" alt="Portfolio" style={styles.icons} />}
               CATEGORIES
             </Nav.Link>
+ */}
             <Nav.Link
               onClick={() => onSetPage("about")}
               active={selectedPage === "about"}
@@ -70,6 +203,7 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               ABOUT
             </Nav.Link>
+
             {/* Divider */}
             <div
               style={{
@@ -158,6 +292,11 @@ const styles = {
     fontWeight: "bold",
     color: "#008000",
     borderBottom: "1px solid #008000",
+  },
+
+  activeLinkSub: {
+    fontWeight: "bold",
+    color: "#d6ddd6ff",
   },
 };
 

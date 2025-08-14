@@ -10,7 +10,7 @@ import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
 
 // ...existing code...
-const IconsPage = () => {
+const CategoriesPage = () => {
   return (
     <>
       <div id="dashboard" className="content2 grid-containerink">
@@ -188,5 +188,5 @@ const IconsPage = () => {
   );
 };
 
-export default IconsPage;
+export default CategoriesPage;
 // ...existing code...
