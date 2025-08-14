@@ -1,131 +1,103 @@
 import React from "react";
+import "../assets/css/footer.css";
 
 const Footer = () => {
   return (
-    <footer style={styles.footer}>
-      <br></br>
-      <div>
-        <ul>
-          <li style={styles.list}>
-            <strong>INSTAGRAM:</strong>
-            {"blah blah blah "}
-            <a style={styles.contact} href="mailto:someone@gmail.com">
-              +44 7887945460{" "}
+    <>
+      <footer className="footer">
+        <div className="footer-box left-box">
+          <h4>Travel Blogs</h4>
+          <ul>
+            <li>
+              <a
+                href="https://nomadicmatt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Nomadic Matt
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://theblondeabroad.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                The Blonde Abroad
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://expertvagabond.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Expert Vagabond
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer-box middle-box">
+          <h4>Gurus Travel Blog</h4>
+          <p>Exploring the world, one story at a time.</p>
+          <div className="social-icons">
+            <a href="#" class="fa-brands fa-twitter fa-2x">
+              <p>
+                <span style={styles.span}> Twitter</span>
+              </p>
             </a>
-            <strong>EMAIL:</strong>{" "}
-            <a style={styles.contact} href="mailto:someone@gmail.com">
-              info@example.com{" "}
+            <a href="#" class="fab fa-facebook-f fa-2x">
+              <p>
+                <span style={styles.span}> Facebook</span>
+              </p>
             </a>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="w3-center"
-        style={{
-          paddingBottom: "0px",
-          height: "90%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <ul
-          className="mediame"
-          style={{
-            position: "absolute",
-            top: "inherit",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: "3",
-            display: "flex",
-          }}
-        >
-          <li
-            style={{
-              listStyle: "none",
-              margin: "0%",
-              paddingLeft: "0em",
-              paddingRight: "0em",
-            }}
-          >
-            <a
-              style={{
-                position: "relative",
-                display: "block",
-                width: "80px",
-                height: "80px",
-                color: "white",
-              }}
-              href="#"
-              className="fab fa-instagram fa-2x"
-            ></a>
-          </li>
-          <li
-            style={{
-              listStyle: "none",
-              margin: "0%",
-              paddingLeft: "0em",
-              paddingRight: "0em",
-            }}
-          >
-            <a
-              style={{
-                position: "relative",
-                display: "block",
-                width: "80px",
-                height: "80px",
-                color: "white",
-              }}
-              href="#"
-              className="fab fa-facebook-f fa-2x"
-            ></a>
-          </li>
-          <li
-            style={{
-              listStyle: "none",
-              margin: "0%",
-              paddingLeft: "0em",
-              paddingRight: "0em",
-            }}
-          >
-            <a
-              style={{
-                position: "relative",
-                display: "block",
-                width: "80px",
-                height: "80px",
-                color: "white",
-              }}
-              href="www.linkedin.com/in/james-bampton-bsc-hons-1821053"
-              className="fab fa-linkedin fa-2x"
-            ></a>
-          </li>
-        </ul>
-        <p>
-          &copy; 2025 Guru's of the Apocolypse React Application. All rights
-          reserved.
-        </p>
-      </div>
-    </footer>
+            <a href="#" class="fab fa-instagram fa-2x">
+              <p>
+                <span style={styles.span}> Instagram</span>
+              </p>
+            </a>
+          </div>
+          <br></br>
+        </div>
+        <div className="footer-box right-box">
+          <h4>Contact Us</h4>
+          <p>Email: contact@gurustravel.com</p>
+          <p>Phone: +44 1234 567890</p>
+          <p>Location: Hampshire, UK</p>
+        </div>
+      </footer>
+      <img
+        src="Client\public\logo-lg.png"
+        alt="branding"
+        style={styles.brandy}
+      ></img>
+      <p>
+        <hr style={styles.bar}></hr>
+        &copy; 2025 Guru's of the Apocolypse React Application. All rights
+        reserved.
+      </p>
+    </>
   );
 };
 
-// Inline styles for simplicity
 const styles = {
-  footer: {
-    backgroundColor: "#000000",
-    color: "#fff",
-    textAlign: "center",
+  span: {
     padding: "10px",
-    height: "300px",
+    marginBottom: "0px",
+    fontFamily: "Arial, Helvetica, sans-serif",
   },
-  contact: {
-    padding: "10px",
-    listStyle: "none",
-    color: "#a05b2e",
+  bar: {
+    width: "50%",
+    marginRight: "25%",
+    marginLeft: "25%",
   },
-  list: {
-    listStyle: "none",
+
+  brandy: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center" /* Vertical alignment */,
+    height: "10%",
   },
 };
 
