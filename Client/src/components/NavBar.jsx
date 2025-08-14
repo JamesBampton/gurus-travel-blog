@@ -1,11 +1,15 @@
 //import React from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSession } from "../contexts/SessionContext"; //ADDED FROM SRAVYA
+import { NavLink, useNavigate } from "react-router-dom"; //ADDED FROM SRAVYA
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/css/navbar.css";
 
 const NavBar = ({ selectedPage, onSetPage }) => {
   //const [hover, setHover] = useState(false);
+  const { user, login, logout } = useSession(); //ADDED FROM SRAVYA
+  const navigate = useNavigate(); //ADDED FROM SRAVYA
 
   return (
     <Navbar expand="lg" style={styles.navbar} className="navbar navbar-light">
@@ -14,7 +18,10 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         className="d-flex justify-content-between align-items-center"
         style={styles.conty}
       >
-        <Navbar.Brand href="#home">
+        {/*<Navbar.Brand href="#home">*/}
+        <Navbar.Brand as={NavLink} to="/">
+          {" "}
+          {/* //ADDED FROM SRAVYA */}
           <img
             src="Client\public\logo-sm.png"
             alt="branding"
@@ -30,11 +37,13 @@ const NavBar = ({ selectedPage, onSetPage }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link
-              onClick={() => onSetPage("home")}
+              as={NavLink}
+              to="/"
+              end
+              /* onClick={() => onSetPage("home")}
               active={selectedPage === "home"}
-              style={selectedPage === "home" ? styles.activeLink : undefined}
+              style={selectedPage === "home" ? styles.activeLink : undefined} */
             >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               HOME
             </Nav.Link>
 
@@ -43,7 +52,6 @@ const NavBar = ({ selectedPage, onSetPage }) => {
               active={selectedPage === "blog"}
               style={selectedPage === "blog" ? styles.activeLink : undefined}
             >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
               BLOG
             </Nav.Link>
 
