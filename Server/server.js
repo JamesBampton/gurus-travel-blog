@@ -1,39 +1,37 @@
-// Import required packages
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
-const categories = require("./seeds/categories.json");
-
 
 const sequelize = require("./config/connection");
 const routes = require("./routes");
 
 // Initialize Express application
 const app = express();
+
+// Middleware
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Enable CORS for any paths from the client
 app.use(cors());
-
-const PORT = process.env.PORT || 3001;
-
-// has the --rebuild parameter been passed as a command line param?
-const rebuild = process.argv[2] === "--rebuild";
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "../client/public")));
 
-// Handle GET request at the root route
+// Root route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.htm"));
+  res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
-// Add routes
+// Mount all routes from routes/index.js
 app.use(routes);
 
-// Sync database
+// Set port
+const PORT = process.env.PORT || 3001;
+
+// Rebuild flag for database
+const rebuild = process.argv[2] === "--rebuild";
+
+// Sync database and start server
 sequelize.sync({ force: rebuild }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });

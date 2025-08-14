@@ -1,5 +1,6 @@
-// HomePage.js
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import BlogCard from "../components/BlogCard";
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -9,8 +10,29 @@ import "../assets/css/carousel.css";
 import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
 
-// ...existing code...
 const BlogPage = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/api/blogs"); // backend URL
+        setBlogs(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return <div style={{ textAlign: "center", marginTop: "50px" }}>Loading blogs...</div>;
+  }
+
   return (
     <>
       <div id="dashboard" className="content2 grid-containerink">
@@ -18,172 +40,24 @@ const BlogPage = () => {
           <div className="w3-padding floating-box-test" id="myHeader">
             <br />
             <div className="backgroundImgblog"></div>
-            {/* places image in this location */}
             <br />
             <br />
           </div>
-          <div class="centered2 myfontL">
-            {" "}
-            ARTICLES<br></br>
-            <p class="myfontS">From travel Gurus...</p>
+          <div className="centered2 myfontL">
+            ARTICLES
+            <br />
+            <p className="myfontS">From travel Gurus...</p>
           </div>
         </div>
       </div>
-      <div>
-        <br />
-        <br />
 
-        <div className="content">
-          {/* NG CARD */}
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./icons.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span style={{ color: "#a05b2e" }}>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-blue.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-logo.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-log0.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-          {/* Repeat other cards as needed, fixing className and style usage */}
-          {/* ...other cards... */}
-        </div>
+      <div className="content">
+        {blogs.length > 0 ? (
+          blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+        ) : (
+          <p style={{ textAlign: "center" }}>No blogs available.</p>
+        )}
       </div>
-      <br />
-      <br />
       <br />
       <br />
     </>
@@ -191,4 +65,4 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
-// ...existing code...
+
