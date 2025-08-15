@@ -1,5 +1,7 @@
 // HomePage.js
-import React from "react";
+import React, {useState} from "react";
+
+import CreatePost from "../components/CreateBlog"
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -11,6 +13,8 @@ import "../assets/css/flip.css";
 
 // ...existing code...
 const BlogPage = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isLoggedIn = !!localStorage.getItem("authToken");
   return (
     <>
       <div id="dashboard" className="content2 grid-containerink">
@@ -22,13 +26,71 @@ const BlogPage = () => {
             <br />
             <br />
           </div>
-          <div class="centered2 myfontL">
+          <div className="centered2 myfontL">
             {" "}
             ARTICLES<br></br>
-            <p class="myfontS">From travel Gurus...</p>
+            <p className="myfontS">From travel Gurus...</p>
           </div>
+          {/* Create Blog Button */}
+          {isLoggedIn && (
+            <div style={{ textAlign: "center", margin: "20px 0" }}>
+              <button
+                className="w3-button w3-teal w3-round"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Create Blog
+              </button>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div
+          className="modalOverlay"
+          onClick={() => setIsModalOpen(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 999,
+          }}
+        >
+          <div
+            className="modalContent"
+            onClick={(e) => e.stopPropagation()} // prevent modal close on content click
+            style={{
+              background: "#fff",
+              padding: "20px",
+              borderRadius: "8px",
+              maxWidth: "500px",
+              width: "100%",
+            }}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              style={{
+                float: "right",
+                background: "transparent",
+                border: "none",
+                fontSize: "20px",
+                cursor: "pointer",
+              }}
+            >
+              &times;
+            </button>
+            <CreatePost />
+          </div>
+        </div>
+      )}
+        
       <div>
         <br />
         <br />

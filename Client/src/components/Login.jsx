@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import api from "../../api.jsx";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
 
 const defaultUser = {
-  email: "test@travelblog.com", // Need to remove defaults later
-  password: "Password123!",
+  email: "jane@example.com", // Need to remove defaults later
+  password: "password123",
 };
 
 export default function Login() {
@@ -19,7 +20,7 @@ export default function Login() {
     try {
       // Send login request to backend
       const response = await axios.post(
-        "http://localhost:5000/api/users/login", // change to your backend URL
+         "http://localhost:3001/api/users/login", // backend URL
         { email, password }
       );
 
@@ -27,8 +28,8 @@ export default function Login() {
 
       // Save user to session context
       setUser({
-        name: data.user.name,
-        //email: data.user.email,
+        username: data.user.username,
+        email: data.user.email,
         id: data.user.id,
       });
 
@@ -52,6 +53,7 @@ export default function Login() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        autoComplete="email"
       />
       <input
         type="password"
@@ -59,6 +61,7 @@ export default function Login() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        autoComplete="current-password"
       />
       <button type="submit">Login</button>
     </form>

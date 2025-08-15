@@ -1,43 +1,95 @@
-import React, { useState } from "react";
-import { useSession } from "../context/SessionContext";
+import React, { useState, useEffect } from "react";
+import { useSession } from "../../src/contexts/SessionContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function CreatePost() {
   const { user } = useSession();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  const [category, setCategory] = useState(""); // category ID
+  const [thumbnail, setThumbnail] = useState("");
+  const [categories, setCategories] = useState([]);
   // Redirect if not logged in
-  if (!user) {
-    navigate("/login");
-    return null;
-  }
+   useEffect(() => {
+    if (!user) {
+    navigate("/login");//redirect to login
+    }
+  }, [user,navigate]);
+  useEffect(() => {
+    axios.get("http://localhost:3001/api/categories") // replace with your categories route
+      .then(res => setCategories(res.data))
+      .catch(err => console.error("Failed to fetch categories:", err));
+  }, []);
 
-  const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can send post data to backend here
-    console.log("Post Created:", { title, content, author: user.name });
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await axios.post(
+        "http://localhost:3001/api/blogs",
+        {
+          blog_title: title,
+          blog_content: content,
+          category_id: parseInt(category),
+          user_id: user.id,
+          thumbnail_image: thumbnail || "https://example.com/default-thumbnail.jpg",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Blog Created:", response.data);
+      navigate("/"); // redirect to home or blog list
+    } catch (error) {
+      console.error("Failed to create blog:", error);
+      alert("Failed to create blog post.");
+    }
   };
 
   return (
-    <div>
-      <h2>Create New Post</h2>
-      <form onSubmit={handleSubmit}>
+    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+      <h1>Create Blog Post</h1>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         <input
           type="text"
-          placeholder="Post Title"
+          placeholder="Blog Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
+          style={{ padding: "10px", fontSize: "16px" }}
         />
         <textarea
-          placeholder="Write your travel story..."
+          placeholder="Write your blog..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
           required
+          style={{ padding: "10px", fontSize: "16px", minHeight: "150px" }}
         />
-        <button type="submit">Publish</button>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+          style={{ padding: "10px", fontSize: "16px" }}
+        >
+          <option value="">Select Category</option>
+          {categories.map(cat => (
+            <option key={cat.id} value={cat.id}>{cat.name}</option>
+          ))}
+        </select>
+        <input
+          type="text"
+          placeholder="Thumbnail URL (optional)"
+          value={thumbnail}
+          onChange={(e) => setThumbnail(e.target.value)}
+          style={{ padding: "10px", fontSize: "16px" }}
+        />
+        <button type="submit" style={{ padding: "10px", fontSize: "16px", cursor: "pointer" }}>
+          Create Post
+        </button>
       </form>
     </div>
   );

@@ -27,11 +27,12 @@ app.use(express.static(path.join(__dirname, "../client/public")));
 
 // Handle GET request at the root route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.htm"));
+  //res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
 // Add routes
-app.use(routes);
+app.use("/api",routes);
 
 // Sync database
 sequelize.sync({ force: rebuild }).then(() => {

@@ -8,7 +8,7 @@ import "../assets/css/navbar.css";
 
 const NavBar = () => {
   //const [hover, setHover] = useState(false);
-  const { user, login, logout } = useSession(); //ADDED FROM SRAVYA
+  const { user, logout } = useSession(); //ADDED FROM SRAVYA
   const navigate = useNavigate(); //ADDED FROM SRAVYA
 
   return (
@@ -23,7 +23,7 @@ const NavBar = () => {
           {" "}
           {/* //ADDED FROM SRAVYA */}
           <img
-            src="\public\logo-sm.png"
+            src="/logo-sm.png"
             alt="branding"
             style={styles.brand}
           />
@@ -125,6 +125,30 @@ const NavBar = () => {
                 margin: "0 22px",
               }}
             />
+            {/* Conditional rendering for login/logout */}
+            {user ? (
+              <>
+                <span style={{ marginRight: "10px", color: "#008000" }}>
+                  Welcome, {user.username}!
+                </span>
+                <button
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                  style={{
+                    backgroundColor: "#008000",
+                    color: "#fff",
+                    padding: "6px 12px",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  LOGOUT
+                </button>
+              </>
+            ) : (
+              <>
             <Nav.Link
               as={NavLink}
               to="/login"
@@ -153,13 +177,15 @@ const NavBar = () => {
             >
               REGISTER
             </Nav.Link>
-
-            {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
-              LOGIN
-            </Nav.Link>
-            <Nav.Link as={Link} to="/register" className="btn btn-primary">
-              REGISTER
-            </Nav.Link> */}
+          </>
+            // {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
+            //   LOGIN
+            // </Nav.Link>
+            // <Nav.Link as={Link} to="/register" className="btn btn-primary">
+            //   REGISTER
+            // </Nav.Link> */}
+            )}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
