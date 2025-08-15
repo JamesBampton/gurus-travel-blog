@@ -7,10 +7,10 @@ const userRoutes = require("./user");
 const categoryRoutes = require("./category");
 
 // Mount API routes with clear base paths
-router.use("/blogs", blogRoutes);       // Blog CRUD and retrieval
-router.use("/comments", commentRoutes); // Comments CRUD
+router.use("/api/blogs", blogRoutes);       // Blog CRUD and retrieval
+router.use("/api/comments", commentRoutes); // Comments CRUD
 router.use("/users", userRoutes);       // User registration, login, etc.
-router.use("/categories", categoryRoutes); // Category CRUD
+router.use("/api/categories", categoryRoutes); // Category CRUD
 
 // Optional: handle unknown routes (404)
 router.use((req, res) => {
