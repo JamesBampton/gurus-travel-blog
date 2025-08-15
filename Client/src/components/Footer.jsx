@@ -70,7 +70,7 @@ const Footer = () => {
       <div className="flexContainer">
         <div>
           <img
-            src="Client\public\logo-sm.png"
+            src="\public\logo-sm.png"
             alt="branding"
             style={styles.brandy}
           ></img>

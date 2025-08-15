@@ -43,7 +43,7 @@
 }
 
 .backgroundImg {
-  background-image: url("../public/home-pack-back-torn.jpg"); /* if in public folder */
+  background-image: url("../public/home-pack-back-torn.png"); /* if in public folder */
   background-size: cover; /* or 'cover' depending on your goal */
   background-repeat: no-repeat;
   background-position: center;
