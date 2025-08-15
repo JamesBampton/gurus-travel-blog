@@ -1,10 +1,9 @@
-
-// HomePage.js
-import React, {useState} from "react";
-import CreatePost from "../components/CreateBlog"
+// BlogPage.jsx
 import React, { useEffect, useState } from "react";
+import CreatePost from "../components/CreateBlog";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
+
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -15,7 +14,6 @@ import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
 
 const BlogPage = () => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isLoggedIn = !!localStorage.getItem("authToken");
   const [blogs, setBlogs] = useState([]);
@@ -26,9 +24,9 @@ const BlogPage = () => {
       try {
         const response = await axios.get("http://localhost:3001/api/blogs"); // backend URL
         setBlogs(response.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -37,11 +35,16 @@ const BlogPage = () => {
   }, []);
 
   if (loading) {
-    return <div style={{ textAlign: "center", marginTop: "50px" }}>Loading blogs...</div>;
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Loading blogs...
+      </div>
+    );
   }
 
   return (
     <>
+      {/* Header */}
       <div id="dashboard" className="content2 grid-containerink">
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
@@ -51,15 +54,11 @@ const BlogPage = () => {
             <br />
           </div>
           <div className="centered2 myfontL">
-
-            {" "}
-            ARTICLES<br></br>
-
             ARTICLES
             <br />
-
             <p className="myfontS">From travel Gurus...</p>
           </div>
+
           {/* Create Blog Button */}
           {isLoggedIn && (
             <div style={{ textAlign: "center", margin: "20px 0" }}>
@@ -73,7 +72,6 @@ const BlogPage = () => {
           )}
         </div>
       </div>
-
 
       {/* Modal */}
       {isModalOpen && (
@@ -120,129 +118,15 @@ const BlogPage = () => {
           </div>
         </div>
       )}
-        
-      <div>
-        <br />
-        <br />
 
-        <div className="content">
-          {/* NG CARD */}
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./icons.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span style={{ color: "#a05b2e" }}>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-blue.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-logo.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-
+      {/* Dynamic Blogs */}
       <div className="content">
         {blogs.length > 0 ? (
           blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
         ) : (
           <p style={{ textAlign: "center" }}>No blogs available.</p>
         )}
-      </div>
+      </div> 
       <br />
       <br />
     </>
@@ -250,4 +134,3 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
-

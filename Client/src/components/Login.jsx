@@ -20,7 +20,7 @@ export default function Login() {
     try {
       // Send login request to backend
       const response = await axios.post(
-         "http://localhost:3001/api/users/login", // backend URL
+         "http://localhost:3001/users/login", // backend URL
         { email, password }
       );
 
