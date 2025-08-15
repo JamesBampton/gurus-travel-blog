@@ -44,7 +44,7 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    const validPassword = user.checkPassword(password);
+    const validPassword = await user.checkPassword(password);
     if (!validPassword) return res.status(401).json({ message: "Invalid credentials" });
 
     const token = signToken({ id: user.id, username: user.username, email: user.email });

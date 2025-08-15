@@ -40,6 +40,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import HomePage from "./pages/HomePage";
 import CitiesPage from "./pages/CitiesPage";
 import AboutPage from "./pages/AboutPage";
@@ -55,6 +56,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
