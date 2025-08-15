@@ -19,11 +19,20 @@ app.use(express.static(path.join(__dirname, "../client/public")));
 
 // Root route
 app.get("/", (req, res) => {
+
+  //res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/public/index.html"));
+});
+
+// Add routes
+app.use("/api",routes);
+
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
 // Mount all routes from routes/index.js
 app.use(routes);
+
 
 // Set port
 const PORT = process.env.PORT || 3001;

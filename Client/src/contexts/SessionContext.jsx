@@ -5,8 +5,8 @@ const SessionContext = createContext();
 export const SessionProvider = ({ children }) => {
   const [user, setUser] = useState(null); // null means not logged in
 
-  const login = (username) => {
-    setUser({ name: username });
+  const login = (userData) => {
+    setUser(userData );
   };
 
   const logout = () => {
@@ -14,7 +14,7 @@ export const SessionProvider = ({ children }) => {
   };
 
   return (
-    <SessionContext.Provider value={{ user, login, logout }}>
+    <SessionContext.Provider value={{ user, login, logout,setUser }}>
       {children}
     </SessionContext.Provider>
   );

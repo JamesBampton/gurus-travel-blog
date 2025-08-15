@@ -1,4 +1,4 @@
-import courses from './blogs.json';
+import courses from '../../Server/seeds/blogs.json';
 
 const get = (url, params) => {
 
