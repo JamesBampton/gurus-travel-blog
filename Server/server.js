@@ -27,9 +27,6 @@ app.get("/", (req, res) => {
 // Add routes
 app.use("/api",routes);
 
-  res.sendFile(path.join(__dirname, "../client/public/index.html"));
-});
-
 // Mount all routes from routes/index.js
 app.use(routes);
 

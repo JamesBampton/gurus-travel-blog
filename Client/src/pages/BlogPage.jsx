@@ -1,10 +1,8 @@
-
-// HomePage.js
-import React, {useState} from "react";
-import CreatePost from "../components/CreateBlog"
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import CreatePost from "../components/CreateBlog";
 import BlogCard from "../components/BlogCard";
+
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -15,7 +13,6 @@ import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
 
 const BlogPage = () => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isLoggedIn = !!localStorage.getItem("authToken");
   const [blogs, setBlogs] = useState([]);
@@ -24,7 +21,7 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/blogs"); // backend URL
+        const response = await axios.get("http://localhost:3001/api/blogs");
         setBlogs(response.data);
         setLoading(false);
       } catch (error) {
@@ -37,11 +34,16 @@ const BlogPage = () => {
   }, []);
 
   if (loading) {
-    return <div style={{ textAlign: "center", marginTop: "50px" }}>Loading blogs...</div>;
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Loading blogs...
+      </div>
+    );
   }
 
   return (
     <>
+      {/* Header Section */}
       <div id="dashboard" className="content2 grid-containerink">
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
@@ -51,15 +53,13 @@ const BlogPage = () => {
             <br />
           </div>
           <div className="centered2 myfontL">
-
-            {" "}
-            ARTICLES<br></br>
-
             ARTICLES
             <br />
-
+            ARTICLES
+            <br />
             <p className="myfontS">From travel Gurus...</p>
           </div>
+
           {/* Create Blog Button */}
           {isLoggedIn && (
             <div style={{ textAlign: "center", margin: "20px 0" }}>
@@ -73,7 +73,6 @@ const BlogPage = () => {
           )}
         </div>
       </div>
-
 
       {/* Modal */}
       {isModalOpen && (
@@ -95,7 +94,7 @@ const BlogPage = () => {
         >
           <div
             className="modalContent"
-            onClick={(e) => e.stopPropagation()} // prevent modal close on content click
+            onClick={(e) => e.stopPropagation()}
             style={{
               background: "#fff",
               padding: "20px",
@@ -120,13 +119,14 @@ const BlogPage = () => {
           </div>
         </div>
       )}
-        
+
+      {/* Card Section */}
       <div>
         <br />
         <br />
 
         <div className="content">
-          {/* NG CARD */}
+          {/* Card 1 */}
           <div className="card">
             <div className="layer"></div>
             <p
@@ -145,9 +145,6 @@ const BlogPage = () => {
                 style={{
                   width: 160,
                   marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   zIndex: 1,
                   borderRadius: "10px",
                 }}
@@ -163,6 +160,7 @@ const BlogPage = () => {
             </div>
           </div>
 
+          {/* Card 2 */}
           <div className="card">
             <div className="layer"></div>
             <p
@@ -181,9 +179,6 @@ const BlogPage = () => {
                 style={{
                   width: 160,
                   marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   zIndex: 1,
                   borderRadius: "10px",
                 }}
@@ -199,6 +194,7 @@ const BlogPage = () => {
             </div>
           </div>
 
+          {/* Card 3 */}
           <div className="card">
             <div className="layer"></div>
             <p
@@ -217,9 +213,6 @@ const BlogPage = () => {
                 style={{
                   width: 160,
                   marginBottom: 40,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   zIndex: 1,
                   borderRadius: "10px",
                 }}
@@ -234,20 +227,24 @@ const BlogPage = () => {
               </h2>
             </div>
           </div>
+        </div>
 
+        {/* Blog List Section */}
+        <div className="content">
+          {blogs.length > 0 ? (
+            blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+          ) : (
+            <p style={{ textAlign: "center" }}>No blogs available.</p>
+          )}
+        </div>
 
-      <div className="content">
-        {blogs.length > 0 ? (
-          blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
-        ) : (
-          <p style={{ textAlign: "center" }}>No blogs available.</p>
-        )}
+        <br />
+        <br />
       </div>
-      <br />
-      <br />
     </>
   );
 };
 
 export default BlogPage;
+
 
