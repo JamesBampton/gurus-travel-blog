@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CreatePost from "../components/CreateBlog";
 import BlogCard from "../components/BlogCard";
-
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -23,9 +22,9 @@ const BlogPage = () => {
       try {
         const response = await axios.get("http://localhost:3001/api/blogs");
         setBlogs(response.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -53,8 +52,6 @@ const BlogPage = () => {
             <br />
           </div>
           <div className="centered2 myfontL">
-            ARTICLES
-            <br />
             ARTICLES
             <br />
             <p className="myfontS">From travel Gurus...</p>
@@ -120,131 +117,19 @@ const BlogPage = () => {
         </div>
       )}
 
-      {/* Card Section */}
-      <div>
-        <br />
-        <br />
+      {/* Dynamic Blogs */}
+      <div className="content">
+        {blogs.length > 0 ? (
+          blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+        ) : (
+          <p style={{ textAlign: "center" }}>No blogs available.</p>
+        )}
+      </div> 
+      <br />
+      <br />
 
-        <div className="content">
-          {/* Card 1 */}
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./icons.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span style={{ color: "#a05b2e" }}>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-blue.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="card">
-            <div className="layer"></div>
-            <p
-              className="w3-center"
-              style={{
-                paddingBottom: 0,
-                height: "90%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="./ng-logo.png"
-                className="w3-circle"
-                style={{
-                  width: 160,
-                  marginBottom: 40,
-                  zIndex: 1,
-                  borderRadius: "10px",
-                }}
-                alt="Avatar"
-              />
-            </p>
-            <div className="details">
-              <h2>
-                SOME TEXT
-                <br />
-                <span>Some more text</span>
-              </h2>
-            </div>
-          </div>
-        </div>
-
-        {/* Blog List Section */}
-        <div className="content">
-          {blogs.length > 0 ? (
-            blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
-          ) : (
-            <p style={{ textAlign: "center" }}>No blogs available.</p>
-          )}
-        </div>
-
-        <br />
-        <br />
-      </div>
     </>
   );
 };
 
 export default BlogPage;
-
-
