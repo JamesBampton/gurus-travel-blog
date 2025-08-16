@@ -18,12 +18,12 @@ const seedDatabase = async () => {
     // Seed Categories
     const categories = await Category.bulkCreate(categoriesData, { returning: true });
 
-    // Hash passwords for users
-    for (const user of usersData) {
-      user.password = await bcrypt.hash(user.password, 10);
-    }
     // Seed Users
-    const users = await User.bulkCreate(usersData, { returning: true });
+    
+    const users = await User.bulkCreate(usersData, {
+        returning: true,
+      individualHooks: true, 
+    });
 
     // Assign categoryId and userId dynamically to blogs
     for (const blog of blogsData) {

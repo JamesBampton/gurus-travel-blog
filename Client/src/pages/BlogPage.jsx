@@ -1,9 +1,7 @@
-// BlogPage.jsx
 import React, { useEffect, useState } from "react";
-import CreatePost from "../components/CreateBlog";
 import axios from "axios";
+import CreatePost from "../components/CreateBlog";
 import BlogCard from "../components/BlogCard";
-
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
 import "../assets/css/icons.css";
@@ -22,7 +20,7 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/blogs"); // backend URL
+        const response = await axios.get("http://localhost:3001/api/blogs");
         setBlogs(response.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -44,7 +42,7 @@ const BlogPage = () => {
 
   return (
     <>
-      {/* Header */}
+      {/* Header Section */}
       <div id="dashboard" className="content2 grid-containerink">
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
@@ -93,7 +91,7 @@ const BlogPage = () => {
         >
           <div
             className="modalContent"
-            onClick={(e) => e.stopPropagation()} // prevent modal close on content click
+            onClick={(e) => e.stopPropagation()}
             style={{
               background: "#fff",
               padding: "20px",
@@ -129,6 +127,7 @@ const BlogPage = () => {
       </div> 
       <br />
       <br />
+
     </>
   );
 };

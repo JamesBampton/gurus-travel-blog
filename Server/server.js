@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
   //res.sendFile(path.join(__dirname, "public", "index.html"));
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
+
 // Mount all routes from routes/index.js
 app.use(routes);
 
