@@ -21,7 +21,7 @@ router.post("/", authMiddleware, async (req, res) => {
 });
 
 // Get all blog posts (public)
-router.get("/", async (req, res) => {
+/*router.get("/", async (req, res) => {
   try {
     const blogs = await Blog.findAll({
       include: [
@@ -45,7 +45,45 @@ router.get("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error retrieving blogs", error: error.message });
   }
+});*/
+
+router.get("/", async (req, res) => {
+  try {
+    const { category } = req.query; // e.g., ?category=Adventure
+
+    const whereClause = {};
+
+    if (category) {
+      const foundCategory = await Category.findOne({
+        where: { category_name: category },
+      });
+
+      if (!foundCategory) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+
+      whereClause.category_id = foundCategory.id;
+    }
+
+    const blogs = await Blog.findAll({
+      where: whereClause,
+      include: [
+        { model: User, attributes: ["id", "username", "email"] },
+        { model: Category, attributes: ["id", "category_name"] },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["id", "username"] }],
+        },
+      ],
+      order: [["id", "DESC"]],
+    });
+
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving blogs", error: error.message });
+  }
 });
+
 
 // Get blog by ID (public)
 router.get("/:id", async (req, res) => {
