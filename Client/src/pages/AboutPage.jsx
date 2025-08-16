@@ -8,6 +8,7 @@ import "../assets/css/w3-theme-teal.css";
 import "../assets/css/carousel.css";
 import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
+import AboutSection from "../components/AboutPage";
 
 // ...existing code...
 const AboutPage = () => {
@@ -25,11 +26,12 @@ const AboutPage = () => {
           <div class="centered myfontL">
             {" "}
             ABOUT GURU'S <br></br>
-            <p class="myfontS">What makes us tick...</p>
+            <p class="myfontS">More about us...</p>
           </div>
         </div>
       </div>
       <div>
+        <AboutSection />
         <br />
         <br />
         <div className="content">
