@@ -191,13 +191,13 @@ p {
 
 /* Centered text inside container*/
 .centered {
-  position: absolute;
-  top: 130%;
-  left: 50%;
+  position: sticky;
+  /* top: 130%;
+  left: 50%;*/
   padding: 5px;
-  font-size: 50px;
+  font-size: 30px;
   font-family: Montserrat, sans-serif;
-  transform: translate(-50%, -270%);
+  transform: translate(0%, -700px);
   color: #024102;
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
@@ -208,13 +208,13 @@ p {
 }
 /* Centered text inside container with darker backgrounds*/
 .centered2 {
-  position: absolute;
-  /*top: 500%;*/
-  left: 50%;
+  position: sticky;
+  /*top: 500%;
+  left: 50%;*/
   padding: 5px;
-  font-size: 50px;
+  font-size: 30px;
   font-family: Montserrat, sans-serif;
-  transform: translate(-50%, -270%);
+  transform: translate(0%, -700px);
   color: #024102;
   background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
