@@ -270,13 +270,14 @@ const BlogDetails = () => {
       blog_title: blog.blog_title,
       blog_content: blog.blog_content,
       thumbnail_image: blog.thumbnail_image || "",
+      category_id: blog.category_id
     });
     setIsEditing(true);
     setAlert("");
     console.log("Start editing:", editData);
   };
 
-  const saveEdit = async () => {
+  /*const saveEdit = async () => {
     console.log("Saving edit:", editData);
     try {
       const response = await axios.put(
@@ -296,7 +297,41 @@ const BlogDetails = () => {
       setAlert("Error updating blog.");
       setTimeout(() => setAlert(""), 3000);
     }
-  };
+  };*/
+  const saveEdit = async () => {
+      console.log("Saving edit:", editData);
+
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        setAlert("You must be logged in to edit this blog.");
+        return;
+      }
+
+      try {
+        const response = await axios.put(
+          `http://localhost:3001/api/blogs/${id}`,
+          editData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setBlog((prev) => ({ ...prev, ...editData }));
+        setIsEditing(false);
+        setAlert("Blog updated successfully!");
+        console.log("Edit saved:", response.data);
+
+        // Auto-hide alert
+        setTimeout(() => setAlert(""), 3000);
+      } catch (err) {
+        console.error("Edit error:", err.response?.data || err.message);
+        setAlert(err.response?.data?.message || "Error updating blog.");
+        setTimeout(() => setAlert(""), 3000);
+      }
+};
+
 
   const cancelEdit = () => {
     setIsEditing(false);
@@ -305,14 +340,14 @@ const BlogDetails = () => {
   };
 
   // --- Delete Blog ---
-  const deleteBlog = async () => {
+  /*const deleteBlog = async () => {
     console.log("Deleting blog ID:", id);
+    //console.log(req.user)
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
       await axios.delete(`http://localhost:3001/api/blogs/${id}`, { withCredentials: true });
       setAlert("Blog deleted successfully!");
       console.log("Blog deleted");
-
       // Redirect after short delay
       setTimeout(() => {
         window.location.href = "/blog";
@@ -321,10 +356,41 @@ const BlogDetails = () => {
       console.error(err);
       setAlert("Error deleting blog.");
     }
-  };
+  };*/
+
+  const deleteBlog = async () => {
+      console.log("Deleting blog ID:", id);
+      if (!window.confirm("Are you sure you want to delete this blog?")) return;
+
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        setAlert("You must be logged in to delete this blog.");
+        return;
+      }
+
+      try {
+        await axios.delete(`http://localhost:3001/api/blogs/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setAlert("Blog deleted successfully!");
+        console.log("Blog deleted");
+
+        // Redirect after short delay
+        setTimeout(() => {
+          window.location.href = "/blog";
+        }, 1000);
+      } catch (err) {
+        console.error("Delete error:", err.response?.data || err.message);
+        setAlert(err.response?.data?.message || "Error deleting blog.");
+      }
+};
+
 
   // --- Add Comment ---
-  const addComment = async (commentContent) => {
+  /*const addComment = async (commentContent) => {
     console.log("Adding comment:", commentContent);
     try {
       const response = await axios.post(
@@ -343,10 +409,48 @@ const BlogDetails = () => {
       setAlert("Error adding comment.");
       setTimeout(() => setAlert(""), 3000);
     }
-  };
+  };*/
+
+  const addComment = async (commentContent) => {
+      console.log("Adding comment:", commentContent);
+
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        setAlert("You must be logged in to comment.");
+        return;
+      }
+
+      try {
+        const response = await axios.post(
+          `http://localhost:3001/api/comments`,
+          {
+            blog_id: id,
+            comment_content: commentContent,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setBlog((prev) => ({
+          ...prev,
+          comments: [...(prev.comments || []), response.data],
+        }));
+
+        setAlert("Comment added!");
+        setTimeout(() => setAlert(""), 3000);
+      } catch (err) {
+        console.error("Comment error:", err.response?.data || err.message);
+        setAlert(err.response?.data?.message || "Error adding comment.");
+        setTimeout(() => setAlert(""), 3000);
+      }
+};
+
 
   // --- Delete Comment ---
-  const deleteComment = async (commentId, commentUserId) => {
+ /* const deleteComment = async (commentId, commentUserId) => {
     if (!user) return;
     if (user.id !== commentUserId && user.id !== blog.user_id) {
       setAlert("You are not authorized to delete this comment.");
@@ -369,7 +473,46 @@ const BlogDetails = () => {
       setAlert("Error deleting comment.");
       setTimeout(() => setAlert(""), 3000);
     }
-  };
+  };*/
+
+  // --- Delete Comment ---
+const deleteComment = async (commentId, commentUserId) => {
+      if (!user || !user.token){
+        console.log("User or token missing");
+         return;
+      }
+
+      console.log(user.id,commentUserId)
+      if (user.id !== commentUserId) {
+        setAlert("You are not authorized to delete this comment.");
+        setTimeout(() => setAlert(""), 3000);
+        return;
+      }
+
+      console.log("Deleting comment ID:", commentId);
+
+      try {
+        await axios.delete(`http://localhost:3001/api/comments/${commentId}`, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+
+        // Remove comment from local state
+        setBlog((prev) => ({
+          ...prev,
+          comments: prev.comments.filter((c) => c.id !== commentId),
+        }));
+
+        setAlert("Comment deleted!");
+        setTimeout(() => setAlert(""), 3000);
+      } catch (err) {
+        console.error(err);
+        setAlert("Error deleting comment.");
+        setTimeout(() => setAlert(""), 3000);
+      }
+};
+
 
   if (error) return <div className="error">{error}</div>;
   if (!blog) return <div>Loading...</div>;
@@ -444,15 +587,18 @@ const BlogDetails = () => {
                 <span className="comment-author">
                   By: {comment.user?.username || "Anonymous"}
                 </span>
-                {user &&
-                  (user.id === comment.user_id || user.id === blog.user_id) && (
+                {user && user.id === comment.user_id && (
                     <button
                       className="delete-comment-btn"
-                      onClick={() => deleteComment(comment.id, comment.user_id)}
-                    >
+                      //onClick={() => deleteComment(comment.id, comment.user_id)}
+                      onClick={() => {
+                            console.log("Button clicked");
+                            deleteComment(comment.id, comment.user_id);
+                          }}
+                        >
                       Delete
                     </button>
-                  )}
+                )}
               </li>
             ))}
           </ul>

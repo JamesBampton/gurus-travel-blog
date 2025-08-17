@@ -11,17 +11,28 @@ router.post("/", authMiddleware, async (req, res) => {
       return res.status(400).json({ message: "Comment content and blog_id are required" });
     }
 
+    // Create the comment
     const newComment = await Comment.create({
       comment_content,
       user_id: req.user.id,
       blog_id,
     });
 
-    res.status(201).json(newComment);
+    // Fetch the comment again with the associated user
+    const fullComment = await Comment.findOne({
+      where: { id: newComment.id },
+      include: {
+        model: User,
+        attributes: ["username"], // Add more fields if needed
+      },
+    });
+
+    res.status(201).json(fullComment);
   } catch (error) {
     res.status(500).json({ message: "Error adding comment", error: error.message });
   }
 });
+
 
 // Get comments for a blog (public)
 router.get("/blog/:blog_id", async (req, res) => {

@@ -117,6 +117,7 @@ export default function Login() {
         username: user.username,
         email: user.email,
         id: user.id,
+        token,
       });
 
       localStorage.setItem("authToken", token);
