@@ -42,17 +42,17 @@ const Footer = () => {
           <h4>Gurus Travel Blog</h4>
           <p>Exploring the world, one story at a time.</p>
           <div className="social-icons">
-            <a href="#" class="fab fa-facebook-f fa-2x">
+            <a href="#" className="fab fa-facebook-f fa-2x">
               <p>
                 <span style={styles.span}> Facebook</span>
               </p>
             </a>
-            <a href="#" class="fa-brands fa-twitter fa-2x">
+            <a href="#" className="fa-brands fa-twitter fa-2x">
               <p>
                 <span style={styles.span}> Twitter</span>
               </p>
             </a>
-            <a href="#" class="fab fa-instagram fa-2x">
+            <a href="#" className="fab fa-instagram fa-2x">
               <p>
                 <span style={styles.span}> Instagram</span>
               </p>

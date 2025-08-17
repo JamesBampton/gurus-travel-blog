@@ -60,43 +60,43 @@ const NavBar = () => {
             </Nav.Link> */}
 
             <NavDropdown title="CATEGORIES" id="categories-dropdown">
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Adventure">
                 Adventure
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
-                Coastal
+              <NavDropdown.Item as={NavLink} to="/blog?category=Beach">
+                Beach
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Cultural">
                 Cultural
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Wildlife">
                 Wildlife
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Food">
                 Food
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=History">
                 History
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Nature">
                 Nature
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Road Trips">
                 Road Trips
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Luxury Travel">
                 Luxury Travel
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={NavLink} to="/blog">
+              <NavDropdown.Item as={NavLink} to="/blog?category=Budget Travel">
                 Budget Travel
               </NavDropdown.Item>
             </NavDropdown>

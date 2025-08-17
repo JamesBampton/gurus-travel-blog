@@ -11,6 +11,7 @@ export const SessionProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("authToken");
   };
 
   return (
