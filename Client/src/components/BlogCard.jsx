@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
   return (
+    <Link to={`/blog/${blog.id}`} style={{ textDecoration: "none" }}>
     <div className="card">
       <div className="layer"></div>
       <p
@@ -40,11 +41,12 @@ const BlogCard = ({ blog }) => {
           </span>
         </h2>
         <p>{blog.blog_content.substring(0, 100)}...</p>
-        <Link className="button" to={`/blog/${blog.id}`}>
-          Read More
-        </Link>
+        <p className="w3-text-grey">
+          <i className="fa fa-calendar"></i> {new Date(blog.createdAt).toLocaleDateString()}
+        </p>
       </div>
     </div>
+    </Link>
   );
 };
 

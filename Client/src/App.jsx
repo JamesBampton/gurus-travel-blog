@@ -45,6 +45,7 @@ import HomePage from "./pages/HomePage";
 import CitiesPage from "./pages/CitiesPage";
 import AboutPage from "./pages/AboutPage";
 import BlogPage from "./pages/BlogPage";
+import BlogDetails from "./components/BlogDetails";
 import CategoriesPage from "./pages/CategoriesPage";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/cities" element={<CitiesPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/categories" element={<CategoriesPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

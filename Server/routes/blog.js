@@ -5,6 +5,14 @@ const { Blog, User, Category, Comment } = require("../models");
 // Create blog post
 router.post("/", authMiddleware, async (req, res) => {
   try {
+    // Ensure the user is authenticated
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    // Validate request body
+    if (!req.body.blog_title || !req.body.blog_content || !req.body.category_id) {
+      return res.status(400).json({ message: "Blog title, content, and category ID are required." });
+    } 
     const { blog_title, blog_content, category_id } = req.body;
 
     const newBlog = await Blog.create({
@@ -117,6 +125,15 @@ router.get("/:id", async (req, res) => {
 
 // Update blog post
 router.put("/:id", authMiddleware, async (req, res) => {
+  // Ensure the user is authenticated
+  if (!req.user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }   
+  // Validate request body
+  if (!req.body.blog_title || !req.body.blog_content || !req.body.category_id) {
+    return res.status(400).json({ message: "Blog title, content, and category ID are required." });
+  }
+  // Update blog post 
   try {
     const { blog_title, blog_content, category_id } = req.body;
 
@@ -142,6 +159,11 @@ router.put("/:id", authMiddleware, async (req, res) => {
 
 // Delete blog post
 router.delete("/:id", authMiddleware, async (req, res) => {
+  // Ensure the user is authenticated
+  if (!req.user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  // Delete blog post
   try {
     const deletedRows = await Blog.destroy({
       where: {
