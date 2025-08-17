@@ -2,16 +2,39 @@ const router = require("express").Router();
 const { authMiddleware } = require("../utils/auth");
 const { Blog, User, Category, Comment } = require("../models");
 
+const multer = require("multer");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "../uploads/thumbnails"));
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname));
+  },
+});
+
+// Initialize upload middleware
+const upload = multer({ storage });
+
+
 // Create blog post
-router.post("/", authMiddleware, async (req, res) => {
+// router.post("/", authMiddleware, async (req, res) => { added line below
+router.post("/", upload.single("thumbnail"), authMiddleware, async (req, res) => {
   try {
     const { blog_title, blog_content, category_id } = req.body;
+
+     const thumbnailPath = req.file
+      ? `/uploads/thumbnails/${req.file.filename}`
+      : null;
 
     const newBlog = await Blog.create({
       blog_title,
       blog_content,
       category_id,
       user_id: req.user.id,
+      thumbnail_image:thumbnailPath, 
     });
 
     res.status(201).json(newBlog);
@@ -161,3 +184,4 @@ router.delete("/:id", authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
+
