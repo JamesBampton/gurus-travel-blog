@@ -12,7 +12,11 @@ export const SessionProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+
     setShowCreateModal(false);
+
+    localStorage.removeItem("authToken");
+
   };
 
   return (
