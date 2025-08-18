@@ -46,7 +46,7 @@ const NavBar = () => {
         />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-items-lg-center">
             <Nav.Link
               as={NavLink}
               to="/"
@@ -137,24 +137,21 @@ const NavBar = () => {
               }}
             />
              {/* Create Blog button - always visible */}
+            <div className="d-flex align-items-center ms-lg-3 gap-2 mt-2 mt-lg-0"></div>
             <button
               onClick={handleCreateBlog}
-              style={{
-                backgroundColor: "#008000",
-                color: "#fff",
-                padding: "6px 12px",
-                border: "none",
-                cursor: "pointer",
-                marginRight: "6px",
-                marginBottom: "6px",
-              }}
+               //className="btn btn-success me-2 mb-2"
+              className="btn btn-outline-primary"
+              style={{ marginRight: "15px" }}
+
+              
             >
               CREATE BLOG
             </button>
             {/* Conditional rendering for login/logout */}
             {user ? (
               <>
-                <span style={{ marginRight: "10px", color: "#008000" }}>
+                <span  className="btn btn-outline-succes " style={{ color: "#008000" }} >
                   Welcome, {user.username}!
                 </span>
                 <button
@@ -162,13 +159,9 @@ const NavBar = () => {
                     logout();
                     navigate("/login");
                   }}
-                  style={{
-                    backgroundColor: "#008000",
-                    color: "#fff",
-                    padding: "6px 12px",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
+                     className="btn btn-outline-danger"
+                 
+                  
                 >
                   LOGOUT
                 </button>
@@ -178,30 +171,17 @@ const NavBar = () => {
             <Nav.Link
               as={NavLink}
               to="/login"
-              style={{
-                backgroundColor: "#008000",
-                color: "#fff",
-                padding: "6px 12px",
-                //fontWeight: "bold",
-                marginRight: "6px",
-                marginBottom: "6px",
-              }}
+               className="btn btn-outline-success"
             >
               LOGIN
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/register"
-              style={{
-                backgroundColor: "#008000",
-                color: "#fff",
-                padding: "6px 12px",
-                //fontWeight: "bold",
-                marginRight: "6px",
-                marginBottom: "6px",
-              }}
+              className="btn btn-outline-success mb-2 mt-1"
             >
               REGISTER
+
             </Nav.Link>
           </>
             // {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
@@ -221,43 +201,24 @@ const NavBar = () => {
         <div
           className="modalOverlay"
           onClick={() => setShowCreateModal(false)}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 999,
-          }}
+          style={modalStyles.overlay}
         >
           <div
             className="modalContent"
             onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "8px",
-              maxWidth: "500px",
-              width: "100%",
-            }}
+            style={modalStyles.content}
           >
             <button
               onClick={() => setShowCreateModal(false)}
-              style={{
-                float: "right",
-                background: "transparent",
-                border: "none",
-                fontSize: "20px",
-                cursor: "pointer",
-              }}
+              style={modalStyles.closeBtn}
             >
               &times;
             </button>
-            <CreatePost />
+            <CreatePost
+              onSuccess={() => {
+                setShowCreateModal(false); // close modal
+                navigate("/blog");        // redirect to BlogPage.jsx
+              }}/>
           </div>
         </div>
       )}
@@ -312,5 +273,32 @@ const styles = {
     color: "#d6ddd6ff",
   },
 };
-
+const modalStyles = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0,0,0,0.5)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 999,
+  },
+  content: {
+    background: "#fff",
+    padding: "20px",
+    borderRadius: "8px",
+    maxWidth: "500px",
+    width: "100%",
+  },
+  closeBtn: {
+    float: "right",
+    background: "transparent",
+    border: "none",
+    fontSize: "20px",
+    cursor: "pointer",
+  },
+};
 export default NavBar;

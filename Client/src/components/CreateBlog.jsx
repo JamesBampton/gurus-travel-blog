@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSession } from "../../src/contexts/SessionContext";
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-export default function CreatePost() {
+export default function CreatePost(props) {
   const { user } = useSession();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
@@ -53,11 +54,14 @@ export default function CreatePost() {
         {
           headers: {
             Authorization: `Bearer ${token}`,
+             "Content-Type": "multipart/form-data",//explicitly setting 
           },
         }
       );
       console.log("Blog Created:", response.data);
-      navigate("/"); // redirect to home or blog list
+      //navigate("/blogs"); // redirect to home or blog list
+      props.onSuccess();
+      
     } catch (error) {
       console.error("Failed to create blog:", error);
       alert("Failed to create blog post.");
@@ -94,8 +98,9 @@ export default function CreatePost() {
         >
           <option value="">Select Category</option>
           {categories.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.name}
+            <option key={cat.id || cat.category_id}
+              value={cat.id || cat.category_id}>
+              {cat.name || cat.category_name}
             </option>
           ))}
         </select>
