@@ -209,6 +209,14 @@ const upload = multer({ storage });
 // ==========================
 router.post("/", authMiddleware, upload.single("thumbnail"), async (req, res) => {
   try {
+    // Ensure the user is authenticated
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    // Validate request body
+    if (!req.body.blog_title || !req.body.blog_content || !req.body.category_id) {
+      return res.status(400).json({ message: "Blog title, content, and category ID are required." });
+    } 
     const { blog_title, blog_content, category_id } = req.body;
 
     const thumbnailPath = req.file ? `/uploads/thumbnails/${req.file.filename}` : null;
@@ -282,6 +290,15 @@ router.get("/:id", async (req, res) => {
 // Update blog post
 // ==========================
 router.put("/:id", authMiddleware, async (req, res) => {
+  // Ensure the user is authenticated
+  if (!req.user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }   
+  // Validate request body
+  if (!req.body.blog_title || !req.body.blog_content || !req.body.category_id) {
+    return res.status(400).json({ message: "Blog title, content, and category ID are required." });
+  }
+  // Update blog post 
   try {
     const { blog_title, blog_content, category_id } = req.body;
 
@@ -303,6 +320,11 @@ router.put("/:id", authMiddleware, async (req, res) => {
 // Delete blog post
 // ==========================
 router.delete("/:id", authMiddleware, async (req, res) => {
+  // Ensure the user is authenticated
+  if (!req.user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  // Delete blog post
   try {
     const deletedRows = await Blog.destroy({
       where: { id: req.params.id, user_id: req.user.id },

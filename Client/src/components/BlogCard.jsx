@@ -59,6 +59,7 @@ const BlogCard = ({ blog }) => {
     : "/default-thumbnail.png"; // fallback image in public folder
 
   return (
+    <Link to={`/blog/${blog.id}`} style={{ textDecoration: "none" }}>
     <div className="card">
       <div className="layer"></div>
       <div
@@ -92,12 +93,13 @@ const BlogCard = ({ blog }) => {
             {blog.category ? blog.category.category_name : "Uncategorized"}
           </span>
         </h2>
-        <p>{blog.blog_content ? blog.blog_content.substring(0, 100) : ""}...</p>
-        <Link className="button" to={`/blog/${blog.id}`}>
-          Read More
-        </Link>
+        <p>{blog.blog_content.substring(0, 100)}...</p>
+        <p className="w3-text-grey">
+          <i className="fa fa-calendar"></i> {new Date(blog.createdAt).toLocaleDateString()}
+        </p>
       </div>
     </div>
+    </Link>
   );
 };
 
