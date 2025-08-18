@@ -71,7 +71,7 @@ export default function Login() {
 //New login code to take any email and password
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
 
 export default function Login() {
@@ -105,7 +105,7 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/api/users/login", {
+      const response = await axios.post("http://localhost:3001/users/login", {
         email,
         password,
       });
