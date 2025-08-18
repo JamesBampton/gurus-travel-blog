@@ -4,6 +4,7 @@ const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
   const [user, setUser] = useState(null); // null means not logged in
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const login = (userData) => {
     setUser(userData );
@@ -11,11 +12,16 @@ export const SessionProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+
+    setShowCreateModal(false);
+
     localStorage.removeItem("authToken");
+
   };
 
   return (
-    <SessionContext.Provider value={{ user, login, logout,setUser }}>
+    <SessionContext.Provider value={{ user, login, logout,setUser,showCreateModal,
+        setShowCreateModal }}>
       {children}
     </SessionContext.Provider>
   );

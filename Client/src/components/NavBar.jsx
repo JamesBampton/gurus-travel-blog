@@ -4,12 +4,23 @@ import { Link } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext"; //ADDED FROM SRAVYA
 import { NavLink, useNavigate } from "react-router-dom"; //ADDED FROM SRAVYA
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import  CreatePost from "../components/CreateBlog"; // Import modal component
 import "../assets/css/navbar.css";
 
 const NavBar = () => {
   //const [hover, setHover] = useState(false);
-  const { user, logout } = useSession(); //ADDED FROM SRAVYA
+  const { user, logout,showCreateModal, setShowCreateModal } = useSession(); //ADDED FROM SRAVYA
   const navigate = useNavigate(); //ADDED FROM SRAVYA
+  
+
+  const handleCreateBlog = () => {
+    if (!user) {
+      navigate("/login", { state: { fromCreate: true } });
+    } else {
+      setShowCreateModal(true);
+    }
+  };
+
 
   return (
     <Navbar expand="lg" style={styles.navbar} className="navbar navbar-light">
@@ -125,6 +136,21 @@ const NavBar = () => {
                 margin: "0 22px",
               }}
             />
+             {/* Create Blog button - always visible */}
+            <button
+              onClick={handleCreateBlog}
+              style={{
+                backgroundColor: "#008000",
+                color: "#fff",
+                padding: "6px 12px",
+                border: "none",
+                cursor: "pointer",
+                marginRight: "6px",
+                marginBottom: "6px",
+              }}
+            >
+              CREATE BLOG
+            </button>
             {/* Conditional rendering for login/logout */}
             {user ? (
               <>
@@ -186,9 +212,55 @@ const NavBar = () => {
             // </Nav.Link> */}
             )}
             
+
           </Nav>
         </Navbar.Collapse>
       </Container>
+       {/* Modal for Create Blog */}
+      {showCreateModal && (
+        <div
+          className="modalOverlay"
+          onClick={() => setShowCreateModal(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 999,
+          }}
+        >
+          <div
+            className="modalContent"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#fff",
+              padding: "20px",
+              borderRadius: "8px",
+              maxWidth: "500px",
+              width: "100%",
+            }}
+          >
+            <button
+              onClick={() => setShowCreateModal(false)}
+              style={{
+                float: "right",
+                background: "transparent",
+                border: "none",
+                fontSize: "20px",
+                cursor: "pointer",
+              }}
+            >
+              &times;
+            </button>
+            <CreatePost />
+          </div>
+        </div>
+      )}
     </Navbar>
   );
 };
