@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.dropdown-item.active {
+  background-color: #ffffff !important;
+  color: rgb(83, 81, 81) !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
