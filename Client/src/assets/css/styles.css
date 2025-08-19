@@ -192,6 +192,9 @@ p {
 /* Centered text inside container*/
 .centered {
   position: sticky;
+  z-index: 999;
+  margin-top: 10%;
+
   /* top: 130%;
   left: 50%;*/
   padding: 5px;
