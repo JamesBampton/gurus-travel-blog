@@ -60,19 +60,19 @@ const BlogCard = ({ blog }) => {
 
   return (
     <Link to={`/blog/${blog.id}`} style={{ textDecoration: "none" }}>
-    <div className="card">
-      <div className="layer"></div>
-      <div
-        className="w3-center"
-        style={{
-          paddingBottom: 0,
-          height: "90%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img
+      <div className="card">
+        <div className="layer"></div>
+        <div
+          className="w3-center"
+          style={{
+            paddingBottom: 0,
+            height: "90%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* <img
           src={thumbnailURL}
           className="w3-circle"
           style={{
@@ -83,22 +83,38 @@ const BlogCard = ({ blog }) => {
           }}
           alt={blog.blog_title}
         />
-      </div>
+      </div> */}
 
-      <div className="details">
-        <h2>
-          {blog.blog_title}
-          <br />
-          <span style={{ color: "#a05b2e" }}>
-            {blog.category ? blog.category.category_name : "Uncategorized"}
-          </span>
-        </h2>
-        <p>{blog.blog_content.substring(0, 100)}...</p>
-        <p className="w3-text-grey">
-          <i className="fa fa-calendar"></i> {new Date(blog.createdAt).toLocaleDateString()}
-        </p>
+          <img
+            src={thumbnailURL}
+            className="w3-circle"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              marginBottom: 40,
+              zIndex: 1,
+              borderRadius: "0px",
+            }}
+            alt={blog.blog_title}
+          />
+        </div>
+
+        <div className="details">
+          <h2>
+            {blog.blog_title}
+            <br />
+            <span style={{ color: "#a05b2e" }}>
+              {blog.category ? blog.category.category_name : "Uncategorized"}
+            </span>
+          </h2>
+          <p>{blog.blog_content.substring(0, 100)}...</p>
+          <p className="w3-text-grey">
+            <i className="fa fa-calendar"></i>{" "}
+            {new Date(blog.createdAt).toLocaleDateString()}
+          </p>
+        </div>
       </div>
-    </div>
     </Link>
   );
 };

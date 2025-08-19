@@ -178,7 +178,7 @@ const NavBar = () => {
             <Nav.Link
               as={NavLink}
               to="/register"
-              className="btn btn-outline-success mb-2 mt-1"
+              className="btn btn-outline-success ms-2 mb-2 mt-2"
             >
               REGISTER
 

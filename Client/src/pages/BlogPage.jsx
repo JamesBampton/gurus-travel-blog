@@ -124,7 +124,7 @@
 //         ) : (
 //           <p style={{ textAlign: "center" }}>No blogs available.</p>
 //         )}
-//       </div> 
+//       </div>
 //       <br />
 //       <br />
 
@@ -134,7 +134,7 @@
 
 // export default BlogPage;*/
 
-// import { useLocation } from "react-router-dom"; 
+// import { useLocation } from "react-router-dom";
 // //import { useEffect, useState } from "react";
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
@@ -155,7 +155,7 @@
 
 // const BlogPage = () => {
 //   const query = useQuery();
-//   const selectedCategory = query.get("category"); 
+//   const selectedCategory = query.get("category");
 //   const [isModalOpen, setIsModalOpen] = useState(false);
 //   const isLoggedIn = !!localStorage.getItem("authToken");
 //   const [blogs, setBlogs] = useState([]);
@@ -177,7 +177,7 @@
 //     };
 
 //     fetchBlogs();
-//   }, [selectedCategory]); 
+//   }, [selectedCategory]);
 
 //   if (loading) {
 //     return (
@@ -354,20 +354,7 @@ const BlogPage = () => {
             <p className="myfontS">From travel Gurus...</p>
           </div>
 
-          {/* Create Blog Button */}
-          {isLoggedIn && (
-            <div style={{ textAlign: "center", margin: "20px 0" }}>
-              <button
-                className="w3-button w3-teal w3-round"
-                onClick={() => setIsModalOpen(true)}
-              >
-                Create Blog
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
+          
       {/* Create Blog Modal */}
       {isModalOpen && (
         <div
@@ -415,14 +402,15 @@ const BlogPage = () => {
       )}
 
       {/* Blog List */}
-      <div className="content">
-        {selectedCategory && (
-          <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
-            Showing blogs for:{" "}
-            <span style={{ color: "#009688" }}>{selectedCategory}</span>
-          </h3>
-        )}
 
+      {selectedCategory && (
+        <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
+          Showing blogs for:{" "}
+          <span style={{ color: "#009688" }}>{selectedCategory}</span>
+        </h3>
+      )}
+
+      <div className="content">
         {Array.isArray(blogs) && blogs.length > 0 ? (
           blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
         ) : (
@@ -432,6 +420,20 @@ const BlogPage = () => {
           </p>
         )}
       </div>
+      {/* Create Blog Button */}
+          {isLoggedIn && (
+            <div style={{ textAlign: "center", margin: "20px 0" }}>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Create Blog
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
 
       <br />
       <br />
