@@ -1,74 +1,243 @@
 [
-  {
-    "id": 1,
-    "blog_title": "Top 10 Beaches to Visit in 2025",
-    "blog_content": "Discover the most beautiful beaches you must visit this year, from pristine white sands to turquoise waters perfect for swimming and snorkeling.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-1.png",
-    "user_id": 1,
-    "category_id": 1
-  },
-  {
-    "id": 2,
-    "blog_title": "Hiking the Rocky Mountains: A Beginner's Guide",
-    "blog_content": "Essential tips for hiking safely and enjoying the breathtaking views of the Rocky Mountains.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-2.png",
-    "user_id": 2,
-    "category_id": 2
-  },
-  {
-    "id": 3,
-    "blog_title": "Exploring New York City in 3 Days",
-    "blog_content": "A perfect 3-day itinerary to make the most of your New York City adventure, including iconic spots and hidden gems.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-3.png",
-    "user_id": 3,
-    "category_id": 3
-  },
-  {
-    "id": 4,
-    "blog_title": "5 Must-Try Street Foods Around the World",
-    "blog_content": "Take a culinary journey through the world's best street food scenes, from Bangkok to Mexico City.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-4.png",
-    "user_id": 4,
-    "category_id": 5
-  },
-  {
-    "id": 5,
-    "blog_title": "Ancient Ruins You Can Still Visit Today",
-    "blog_content": "Explore ancient civilizations through these incredible historical sites still open to visitors.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-5.png",
-    "user_id": 5,
-    "category_id": 6
-  },
-  {
-    "id": 6,
-    "blog_title": "Wildlife Watching in National Parks",
-    "blog_content": "Learn how to safely spot and enjoy wildlife in national parks around the globe.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-6.png",
-    "user_id": 6,
-    "category_id": 7
-  },
-  {
-    "id": 7,
-    "blog_title": "Packing Hacks for the Minimalist Traveler",
-    "blog_content": "Tips and tricks to pack light while still having everything you need for your trip.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-7.png",
-    "user_id": 7,
-    "category_id": 8
-  },
-  {
-    "id": 8,
-    "blog_title": "Best Road Trips in the USA",
-    "blog_content": "Discover the most scenic road trips across the United States with stops you won’t forget.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-8.png",
-    "user_id": 8,
-    "category_id": 9
-  },
-  {
-    "id": 9,
-    "blog_title": "What to Expect on a Mediterranean Cruise",
-    "blog_content": "Everything you need to know about enjoying a cruise across the Mediterranean Sea.",
-    "thumbnail_image": "/uploads/thumbnails/thumbnail-9.png",
-    "user_id": 9,
-    "category_id": 10
-  }
-]
+    {
+      "id": 1,
+      "blog_title": "Top 10 Beaches to Visit in 2025",
+      "blog_content": "Discover the most beautiful beaches you must visit this year, from pristine white sands to turquoise waters perfect for swimming and snorkeling. From Bora Bora to the Maldives, explore tranquility and adventure combined. Learn the best times to visit, where to stay, and hidden spots that most tourists miss. Tips for local cuisine, budget-friendly stays, and photography spots included.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-1.png",
+      "user_id": 1,
+      "category_id": 2
+    },
+    {
+      "id": 2,
+      "blog_title": "Hiking the Rocky Mountains: A Beginner's Guide",
+      "blog_content": "Essential tips for hiking safely and enjoying the breathtaking views of the Rocky Mountains. This guide covers gear, trail difficulty, local wildlife, and scenic viewpoints. Learn best times of year to hike, safety tips, and environmental responsibility. Perfect for beginners, with insider advice from experienced hikers.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-2.png",
+      "user_id": 2,
+      "category_id": 1
+    },
+    {
+      "id": 3,
+      "blog_title": "Exploring New York City in 3 Days",
+      "blog_content": "A perfect 3-day itinerary for NYC, including landmarks like Times Square, Central Park, and the Statue of Liberty, plus offbeat neighborhoods and local eateries. Practical tips on transport, budget meals, and avoiding lines. Includes evening shows, rooftop views, and cultural experiences for an unforgettable trip.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-3.png",
+      "user_id": 3,
+      "category_id": 3
+    },
+    {
+      "id": 4,
+      "blog_title": "5 Must-Try Street Foods Around the World",
+      "blog_content": "Take a culinary journey through the world's best street food scenes, from Bangkok to Mexico City. This guide introduces iconic street foods, safety tips, and local customs to enhance your experience. Learn how to find authentic vendors, avoid tourist traps, and enjoy cultural flavors without hesitation. Includes recommendations for budget-friendly meals and unforgettable tasting experiences.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-4.png",
+      "user_id": 4,
+      "category_id": 5    
+    },
+    {
+      "id": 5,
+      "blog_title": "Ancient Ruins You Can Still Visit Today",
+      "blog_content": "Explore ancient civilizations through incredible historical sites still open to visitors. From the Pyramids of Giza to Machu Picchu, discover the history, architecture, and cultural significance of these sites. This guide provides travel tips, guided tour suggestions, and advice for preserving these heritage sites during your visit. Perfect for history buffs and curious travelers alike.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-5.png",
+      "user_id": 5,
+      "category_id": 6
+    },
+    {
+      "id": 6,
+      "blog_title": "Wildlife Watching in National Parks",
+      "blog_content": "Learn how to safely spot and enjoy wildlife in national parks around the globe. From safaris in Africa to bear watching in North America, this guide covers preparation, best times to visit, and safety guidelines. Tips include ethical viewing practices, photography advice, and how to respect the habitats of animals. Perfect for nature lovers and photographers seeking an unforgettable wildlife experience.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-6.png",
+      "user_id": 6,
+      "category_id": 7
+    },
+    {
+      "id": 7,
+      "blog_title": "Packing Hacks for the Minimalist Traveler",
+      "blog_content": "Tips and tricks to pack light while still having everything you need for your trip. Learn how to choose versatile clothing, organize efficiently, and carry essentials without excess. This guide includes advice for different climates, tech gadgets, and travel documents. Ideal for budget-conscious travelers or anyone who wants to simplify their travel experience without compromising comfort or style.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-7.png",
+      "user_id": 7,
+      "category_id": 10
+    },
+    {
+      "id": 8,
+      "blog_title": "Best Road Trips in the USA",
+      "blog_content": "Discover the most scenic road trips across the United States with stops you won’t forget. From California’s Pacific Coast Highway to Route 66, this guide details attractions, dining, and accommodation options along the way. Learn insider tips on timing, must-see landmarks, and off-the-beaten-path destinations. Perfect for adventure seekers and families alike, this road trip guide ensures a memorable journey.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-8.png",
+      "user_id": 8,
+      "category_id": 8
+    },
+    {
+      "id": 9,
+      "blog_title": "What to Expect on a Mediterranean Cruise",
+      "blog_content": "Everything you need to know about enjoying a cruise across the Mediterranean Sea. From ports of call to onboard entertainment, dining options, and excursions, this guide covers all essentials. Learn how to pack, plan activities, and maximize your cruise experience. Perfect for first-time cruisers and seasoned travelers alike seeking a balance of relaxation and adventure on the open sea.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-9.png",
+      "user_id": 9,
+      "category_id": 9
+    },
+    {
+      "id": 10,
+      "blog_title": "Adventure Activities for Thrill Seekers",
+      "blog_content": "Explore adrenaline-pumping adventure activities around the world, from skydiving and bungee jumping to white-water rafting and paragliding. This guide highlights safety tips, best locations, equipment recommendations, and expert advice. Perfect for thrill seekers looking for unforgettable experiences and those wanting to push their boundaries while exploring new destinations.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-10.png",
+      "user_id": 1,
+      "category_id": 1
+    },
+    {
+      "id": 11,
+      "blog_title": "Backpacking Through Europe on a Budget",
+      "blog_content": "Explore Europe without breaking the bank. This guide covers budget accommodations, affordable transportation options, and cheap eats in top European cities. Learn how to save money while still enjoying cultural experiences, sightseeing, and local cuisine. Tips include free walking tours, hostel hacks, and smart travel apps to maximize your budget and have an unforgettable journey.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-11.png",
+      "user_id": 2,
+      "category_id": 10     
+    },
+    {
+      "id": 12,
+      "blog_title": "Luxury Travel Destinations You Must Experience",
+      "blog_content": "Indulge in luxury travel with destinations that offer opulence, comfort, and unique experiences. From private island resorts to 5-star hotels in cosmopolitan cities, this guide highlights experiences for discerning travelers. Learn the best times to visit, exclusive activities, fine dining options, and how to make the most of a lavish vacation while still feeling authentic to the location.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-12.png",
+      "user_id": 3,
+      "category_id": 9
+    },
+    {
+      "id": 13,
+      "blog_title": "Cultural Festivals Around the World",
+      "blog_content": "Experience vibrant cultural festivals worldwide, from the Rio Carnival to Diwali in India. This guide explores the history, traditions, and unique activities of these events. Learn tips for attending, cultural etiquette, and how to fully immerse yourself while respecting local customs. Perfect for travelers seeking colorful experiences and memorable cultural interactions.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-13.png",
+      "user_id": 4,
+      "category_id": 3
+    },
+    {
+      "id": 14,
+      "blog_title": "Wildlife Photography Tips for Beginners",
+      "blog_content": "Capture stunning wildlife photos with these essential tips for beginners. Learn about the best camera gear, timing, lighting, and ethical practices. Discover locations where wildlife is abundant, and how to approach animals safely. Enhance your photography skills while respecting nature and enjoying the thrill of seeing animals in their natural habitats.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-14.png",
+      "user_id": 5,
+      "category_id": 4
+    },
+    {
+      "id": 15,
+      "blog_title": "Road Trip Essentials: Planning Your Adventure",
+      "blog_content": "Make the most of your road trips with this comprehensive guide. Learn about essential gear, packing tips, navigation tools, and planning routes. Includes advice for safety, fuel stops, budget considerations, and choosing scenic routes. Ideal for solo travelers, couples, and families wanting to enjoy the freedom and adventure of hitting the open road.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-15.png",
+      "user_id": 6,
+      "category_id": 8
+    },
+    {
+      "id": 16,
+      "blog_title": "Trekking in the Himalayas: A Complete Guide",
+      "blog_content": "Experience the majestic Himalayas with this trekking guide. Covers preparation, gear, acclimatization, and safety tips. Learn the best trails, local culture, food, and accommodations along the way. Perfect for adventure enthusiasts seeking challenging treks and unforgettable mountain landscapes, while ensuring a safe and respectful journey.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-16.png",
+      "user_id": 7,
+      "category_id": 1
+    },
+    {
+      "id": 17,
+      "blog_title": "Mediterranean Cuisine: Dishes You Must Try",
+      "blog_content": "Discover the flavors of Mediterranean cuisine, including iconic dishes from Greece, Italy, and Spain. Learn about traditional recipes, local ingredients, and culinary techniques. This guide includes recommendations for restaurants, markets, and cooking experiences to fully enjoy the culinary heritage of the region.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-17.png",
+      "user_id": 8,
+      "category_id": 5
+    },
+    {
+      "id": 18,
+      "blog_title": "Nature Trails to Reconnect with the Outdoors",
+      "blog_content": "Reconnect with nature by exploring scenic trails worldwide. This guide features easy to challenging hikes, wildlife spotting tips, and seasonal advice. Perfect for those seeking tranquility, exercise, and the beauty of forests, mountains, and rivers. Learn how to plan trips, choose gear, and safely enjoy the outdoors while leaving minimal impact.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-18.png",
+      "user_id": 1,
+      "category_id": 7
+      
+    },
+    {
+      "id": 19,
+      "blog_title": "Luxury Cruise Experiences You’ll Remember",
+      "blog_content": "Step aboard luxury cruises offering fine dining, entertainment, and unforgettable destinations. Learn how to select cruises, plan excursions, and maximize onboard experiences. Tips include cabin selection, activity schedules, and travel planning. Perfect for travelers seeking comfort, adventure, and relaxation while exploring multiple destinations in style.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-19.png",
+      "user_id": 2,
+      "category_id": 9
+    },
+    {
+      "id": 20,
+      "blog_title": "Budget-Friendly Adventures in Southeast Asia",
+      "blog_content": "Explore Southeast Asia without spending a fortune. Discover affordable accommodations, transportation options, local cuisine, and must-see destinations. Includes tips for cultural immersion, safety, and making the most of limited budgets. Perfect for backpackers, students, and travelers seeking adventure on a budget while enjoying rich experiences.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-20.png",
+      "user_id": 3,
+      "category_id": 10
+    },
+    {
+      "id": 21,
+      "blog_title": "Scenic Train Journeys Around the World",
+      "blog_content": "Experience the magic of train travel with scenic routes across continents. From the Swiss Alps to the Rocky Mountains, enjoy breathtaking landscapes and unique cultural encounters. This guide covers ticket booking, best travel seasons, cabin tips, and must-see stops along the way. Perfect for travelers seeking slow travel, photography opportunities, and unforgettable journeys through nature and cities.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-21.png",
+      "user_id": 4,
+      "category_id": 8
+    },
+    {
+      "id": 22,
+      "blog_title": "Island Hopping in the Caribbean",
+      "blog_content": "Discover the best Caribbean islands to visit, from hidden gems to popular paradises. This guide includes ferry routes, must-see beaches, local cuisine, and accommodation recommendations. Tips for budgeting, activities, and unique cultural experiences ensure a memorable tropical adventure. Perfect for travelers looking to explore multiple islands in one trip with ease and enjoyment.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-22.png",
+      "user_id": 5,
+      "category_id": 2
+    },
+    {
+      "id": 23,
+      "blog_title": "Exploring Ancient Temples in Asia",
+      "blog_content": "Step back in time by visiting ancient temples in Asia, from Angkor Wat to Kyoto’s shrines. Learn about historical significance, architecture, cultural practices, and travel tips. This guide includes best times to visit, respectful behavior, and photography advice, making your temple visits enriching and memorable for any traveler.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-23.png",
+      "user_id": 6,
+      "category_id": 6
+    },
+    {
+      "id": 24,
+      "blog_title": "Best Snorkeling Spots in the Pacific",
+      "blog_content": "Explore crystal-clear waters and vibrant marine life with this guide to the best snorkeling destinations in the Pacific. From coral reefs to tropical fish, discover where to go, what gear to use, and safety precautions. Learn about local conservation efforts, hidden coves, and ideal times for snorkeling adventures for an unforgettable underwater experience.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-24.png",
+      "user_id": 7,
+      "category_id": 2
+    },
+    {
+      "id": 25,
+      "blog_title": "Culinary Adventures in South America",
+      "blog_content": "Taste your way through South America with this culinary guide. From Argentine steaks to Peruvian ceviche, discover authentic flavors, local markets, and cooking classes. Tips for budget-friendly meals, hidden eateries, and must-try dishes make this guide perfect for food lovers seeking unforgettable gastronomic experiences across the continent.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-25.png",
+      "user_id": 8,
+      "category_id": 5
+    },
+    {
+      "id": 26,
+      "blog_title": "Nature Reserves You Must Visit",
+      "blog_content": "Reconnect with the planet by visiting breathtaking nature reserves worldwide. Learn about protected areas, wildlife spotting, eco-tourism, and hiking trails. This guide includes tips for responsible travel, best seasons, and must-see flora and fauna. Perfect for nature lovers, photographers, and those seeking peace in stunning natural landscapes.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-26.png",
+      "user_id": 1,
+      "category_id": 7
+    },
+    {
+      "id": 27,
+      "blog_title": "Adventures in the Australian Outback",
+      "blog_content": "Discover the rugged beauty of the Australian Outback, from red deserts to unique wildlife. This guide covers adventure activities, safety tips, local culture, and must-see locations. Learn how to prepare for extreme conditions, explore remote areas responsibly, and enjoy the unparalleled scenery that makes the Outback a bucket-list destination.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-27.png",
+      "user_id": 2,
+      "category_id": 1
+    },
+    {
+      "id": 28,
+      "blog_title": "Historic Cities You Must Explore",
+      "blog_content": "Step into the past by visiting historic cities worldwide, from Rome to Kyoto. This guide highlights architectural wonders, museums, walking tours, and cultural experiences. Learn travel tips, the best seasons to visit, and hidden gems for a truly immersive journey through history. Perfect for travelers who love culture, architecture, and storytelling through city streets.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-28.png",
+      "user_id": 3,
+      "category_id": 6
+    },
+    {
+      "id": 29,
+      "blog_title": "Luxury Safari Experiences in Africa",
+      "blog_content": "Experience African wildlife in style with luxury safaris. Stay in elegant lodges, enjoy guided tours, and witness wildlife up close while indulging in comfort. This guide covers destinations, best seasons, safari types, and tips for planning. Perfect for travelers seeking adventure, photography, and memorable experiences with top-notch amenities.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-29.png",
+      "user_id": 4,
+      "category_id": 9
+    },
+    {
+      "id": 30,
+      "blog_title": "City Breaks for Quick Getaways",
+      "blog_content": "Perfect guides for short city breaks in Europe, Asia, and the Americas. Includes sightseeing, dining, accommodation, and local experiences. Learn how to maximize your limited time, travel smart, and enjoy the essence of each city. Ideal for busy travelers who want rich experiences in just a few days.",
+      "thumbnail_image": "/uploads/thumbnails/thumbnail-30.png",
+      "user_id": 5,
+      "category_id": 3
+    }
+  ]
