@@ -1,4 +1,4 @@
-.section {
+/* .section {
   padding: 2rem;
   line-height: 1.6;
   max-width: 800px;
@@ -19,5 +19,54 @@ h2 {
 li {
   font-size: 18px;
   color: grey;
-  /*text-align: left;*/
+  /*text-align: left;
+} */
+
+.section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.7;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.highlight {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #008000;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.list li {
+  margin-bottom: 10px;
+  color: #008000;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: justify;
 }
