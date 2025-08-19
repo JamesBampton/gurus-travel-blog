@@ -354,20 +354,7 @@ const BlogPage = () => {
             <p className="myfontS">From travel Gurus...</p>
           </div>
 
-          {/* Create Blog Button */}
-          {isLoggedIn && (
-            <div style={{ textAlign: "center", margin: "20px 0" }}>
-              <button
-                className="w3-button w3-teal w3-round"
-                onClick={() => setIsModalOpen(true)}
-              >
-                Create Blog
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
+          
       {/* Create Blog Modal */}
       {isModalOpen && (
         <div
@@ -432,6 +419,20 @@ const BlogPage = () => {
           </p>
         )}
       </div>
+      {/* Create Blog Button */}
+          {isLoggedIn && (
+            <div style={{ textAlign: "center", margin: "20px 0" }}>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Create Blog
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
 
       <br />
       <br />
