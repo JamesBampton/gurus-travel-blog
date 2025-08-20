@@ -23,7 +23,9 @@ export default function Register() {
       return false;
     }
     if (!usernameRegex.test(username)) {
-      setError("Username must be at least 3 characters and contain only letters, numbers, or underscores.");
+      setError(
+        "Username must be at least 3 characters and contain only letters, numbers, or underscores."
+      );
       return false;
     }
     if (!emailRegex.test(email)) {
@@ -44,11 +46,14 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/users/register", {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:3001/users/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
 
       const { user, token } = response.data;
 
@@ -100,7 +105,9 @@ export default function Register() {
         <button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </button>
-        <h4>Already have an account?<a href="/login"> Login here </a> </h4>
+        <p style={{ color: "#008000", fontSize: 16 }}>
+          Already have an account?<a href="/login"> Login here </a>{" "}
+        </p>
       </form>
     </div>
   );

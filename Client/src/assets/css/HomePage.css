@@ -60,9 +60,11 @@
 .wordy-text {
   font-style: italic;
   font-size: 18px;
-  padding: 5px 40px;
+  padding: 5px 0px;
+  margin-left: 20%;
   color: darkgreen;
-  margin: 0px 100px;
+  min-width: 300px;
+  margin-right: 20%;
 }
 
 .lineBreaker {
