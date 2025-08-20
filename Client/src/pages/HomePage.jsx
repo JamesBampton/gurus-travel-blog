@@ -1,49 +1,3 @@
-// // HomePage.js
-// import React from "react";
-// import "../assets/css/myStyles.css";
-// import "../assets/css/cards.css";
-// import "../assets/css/icons.css";
-// import "../assets/css/styles.css";
-// import "../assets/css/w3-theme-teal.css";
-// import "../assets/css/carousel.css";
-// import "../assets/css/cardspin-test.css";
-// import "../assets/css/flip.css";
-// import "../App.css";
-
-// // ...existing code...
-// const HomePage = () => {
-//   return (
-//     <>
-//       <div id="dashboard" className="content2 grid-containerink">
-//         <div className="ianda1">
-//           <div className="w3-padding floating-box-test" id="myHeader">
-//             <br />
-//             <div className="backgroundImg"></div>
-//             {/* places image in this location */}
-//             <br />
-//             <br />
-//           </div>
-//           <div className="centered myfontL">
-//             {" "}
-//             WELCOME<br></br>
-//             <p className="myfontS">The Gurus blog page...</p>
-//           </div>
-//         </div>
-//       </div>
-//       <div>
-//         <br />
-//         <br />
-
-//       </div>
-//       <br />
-//       <br />
-//       <br />
-//     </>
-//   );
-// };
-
-// export default HomePage;
-// // ...existing code...
 import React, { useState, useEffect } from "react";
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
@@ -57,12 +11,11 @@ import "../assets/css/HomePage.css";
 import "../App.css";
 
 const quotes = [
-  { text: "“Writing is the painting of the voice.”", author: "— Voltaire" },
-  {
-    text: "“The art of blogging is telling stories that connect.”",
-    author: "— James",
-  },
-  { text: "“Good writing begins with good reading.”", author: "— Sarah" },
+  { text: "“Blogging is the art of turning thoughts into stories.”", author: "— Emily Harper" },
+  { text: "“A blog is a window to your mind, open for the world to see.”", author: "— Michael Turner" },
+  { text: "“Every blog post is a conversation waiting to happen.”", author: "— Sophia Clarke" },
+  { text: "“Writing a blog is not just sharing ideas, its sharing yourself.”", author: "— Daniel Foster" },
+  { text: "“The best blogs inspire, inform, and ignite curiosity.”", author: "— Olivia Bennett" },
 ];
 
 const HomePage = () => {
@@ -99,19 +52,20 @@ const HomePage = () => {
 
       {/* Feature Blogs Section */}
       <section className="feature-blogs">
-        <h2 className="section-title">Featured Blogs</h2>
+        <h2 className="section-title">Our Featured Blogs</h2>
         <div className="feature-cards">
+
           {/* Card 1 */}
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">
-                <img src="/images/feature1.jpg" alt="Travel Adventure" />
+                <img src="/images/feature1.jpg" alt="Travel Adventures" />
                 <h3>Travel Adventures</h3>
               </div>
               <div className="flip-card-back">
                 <p>
-                  Explore hidden gems and unforgettable journeys that will
-                  inspire your wanderlust.
+                  Dive into unforgettable journeys, explore hidden gems, and get tips
+                  to make your travels smooth, fun, and full of memorable experiences.
                 </p>
               </div>
             </div>
@@ -121,13 +75,13 @@ const HomePage = () => {
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">
-                <img src="/images/feature2.jpg" alt="Food Recipes" />
+                <img src="/images/feature2.jpg" alt="Food & Recipes" />
                 <h3>Food & Recipes</h3>
               </div>
               <div className="flip-card-back">
                 <p>
-                  Discover delicious recipes and culinary secrets from around
-                  the world.
+                  From traditional dishes to modern twists, discover recipes that
+                  will excite your taste buds and inspire your next culinary creation.
                 </p>
               </div>
             </div>
@@ -142,12 +96,30 @@ const HomePage = () => {
               </div>
               <div className="flip-card-back">
                 <p>
-                  Stay updated with the latest innovations in technology and
-                  digital lifestyle.
+                  Keep up with the fast-paced world of technology. Learn about the
+                  latest gadgets, apps, and innovations shaping our digital future.
                 </p>
               </div>
             </div>
           </div>
+
+          {/* Card 4 */}
+          <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+                <img src="/images/feature4.jpg" alt="Lifestyle & Wellness" />
+                <h3>Lifestyle & Wellness</h3>
+              </div>
+              <div className="flip-card-back">
+                <p>
+                  Tips and insights for a balanced, healthy life. From fitness and
+                  mindfulness to personal growth, discover ways to enhance your daily
+                  well-being.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -155,9 +127,13 @@ const HomePage = () => {
       <div className="ambition-section">
         <h2>Our Ambition</h2>
         <p className="wordy-text">
-          "At Gurus Blog, our mission is to create a community of thinkers,
-          dreamers, and storytellers. We aim to inspire, educate, and empower
-          our readers through diverse topics and engaging stories."
+          "At Gurus Blog, we strive to build a vibrant community of thinkers,
+          dreamers, and storytellers from all walks of life. Our goal is to
+          inspire curiosity, spark creativity, and empower our readers through
+          thought-provoking articles, engaging stories, and fresh perspectives
+          on a wide range of topics. Whether it's travel, lifestyle, technology,
+          or personal growth, we want every reader to feel motivated and
+          connected."
         </p>
         <br></br>
         <a href="/about" className="btn-more">

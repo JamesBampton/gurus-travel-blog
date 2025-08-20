@@ -1,87 +1,52 @@
-// import React from "react";
-// import styles from "./AboutPage.module.css";
-
-// const AboutSection = () => (
-//   <section className={styles.section}>
-//     <h2>Four Explorers, One Blog</h2>
-//     <p>
-//       We’re four curious souls brought together by a shared bootcamp course and
-//       an even deeper love for travel. From different corners of life, we’ve
-//       united to document our journeys through bustling cities, remote villages,
-//       and everything in between.
-//     </p>
-
-//     <p style={{ color: "#008000" }}>
-//       Each of us brings a unique lens to the adventure:
-//     </p>
-//     <ul>
-//       <li style={{ color: "#008000", textAlign: "left" }}>
-//         One of us seeks out forgotten history in quiet ruins and ancient
-//         streets.
-//       </li>
-//       <li style={{ color: "#008000", textAlign: "left" }}>
-//         Another thrives on meeting locals, learning their stories, and sharing
-//         laughter over a meal.
-//       </li>
-//       <li style={{ color: "#008000", textAlign: "left" }}>
-//         One is always chasing bold flavors and culinary surprises.
-//       </li>
-//       <li style={{ color: "#008000", textAlign: "left" }}>
-//         And another finds joy in the unexpected, whether it’s a misty mountain
-//         trail or neon-lit cities.
-//       </li>
-//     </ul>
-
-//     <p>
-//       Together, we write not just to record where we’ve been, but to celebrate
-//       the richness of the world: its people, its past, and its endless variety
-//       of experiences.
-//     </p>
-
-//     <p>
-//       Whether you’re a fellow traveler, a dreamer planning your first trip, or
-//       someone who simply loves a good story, we’re glad you’re here. Let’s
-//       explore the world together, one post at a time.
-//     </p>
-//   </section>
-// );
-
-// export default AboutSection;
 import React from "react";
 import styles from "./AboutPage.module.css";
 
 const AboutSection = () => (
-  <section className={styles.section}>
-    <h2 className={styles.title}>Four Explorers, One Blog</h2>
-    <p className={styles.intro}>
-      We’re four curious souls brought together by a shared bootcamp course and
-      an even deeper love for travel. From different corners of life, we’ve
-      united to document our journeys through bustling cities, remote villages,
-      and everything in between.
-    </p>
+  <section className={`${styles.aboutMission} ${styles.section}`}>
+    <div className={styles.aboutText}>
+      <h2 className={styles.title}>Four Explorers, One Blog</h2>
+      <p className={styles.intro}>
+        We’re four curious souls brought together by a shared bootcamp course and
+        a deep love for travel. From different corners of life, we’ve united to
+        document our journeys through bustling cities, quiet villages, and
+        everything in between.
+      </p>
 
-    <p className={styles.highlight}>
-      Each of us brings a unique lens to the adventure:
-    </p>
+      <div className={styles.explorers}>
+        <div className={styles.explorerCard}>
+          <h3>History Seeker</h3>
+          <p>Always exploring forgotten ruins and ancient streets to uncover hidden stories.</p>
+        </div>
+        <div className={styles.explorerCard}>
+          <h3>Culture Enthusiast</h3>
+          <p>Thrives on meeting locals, sharing laughter, and understanding new perspectives.</p>
+        </div>
+        <div className={styles.explorerCard}>
+          <h3>Culinary Adventurer</h3>
+          <p>Chasing bold flavors and unique culinary experiences from around the world.</p>
+        </div>
+        <div className={styles.explorerCard}>
+          <h3>Spontaneous Explorer</h3>
+          <p>Finds joy in the unexpected—from misty mountains to neon-lit city streets.</p>
+        </div>
+      </div>
 
-    <ul className={styles.list}>
-      <li>One of us seeks out forgotten history in quiet ruins and ancient streets.</li>
-      <li>Another thrives on meeting locals, learning their stories, and sharing laughter over a meal.</li>
-      <li>One is always chasing bold flavors and culinary surprises.</li>
-      <li>And another finds joy in the unexpected, whether it’s a misty mountain trail or neon-lit cities.</li>
-    </ul>
+      <p className={styles.paragraph}>
+        Together, we write not just to record where we’ve been, but to celebrate
+        the richness of the world: its people, its past, and its endless variety
+        of experiences.
+      </p>
 
-    <p className={styles.paragraph}>
-      Together, we write not just to record where we’ve been, but to celebrate
-      the richness of the world: its people, its past, and its endless variety
-      of experiences.
-    </p>
+      <p className={styles.paragraph}>
+        Whether you’re a fellow traveler, a dreamer planning your first trip, or
+        someone who simply loves a good story, we’re glad you’re here. Let’s
+        explore the world together, one post at a time.
+      </p>
+    </div>
 
-    <p className={styles.paragraph}>
-      Whether you’re a fellow traveler, a dreamer planning your first trip, or
-      someone who simply loves a good story, we’re glad you’re here. Let’s
-      explore the world together, one post at a time.
-    </p>
+    <div className={styles.aboutImage}>
+      <img src="/public/images/feature5.jpg" alt="Our Team Exploring" />
+    </div>
   </section>
 );
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
+import Login from "./Login";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -99,6 +100,7 @@ export default function Register() {
         <button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </button>
+        <h4>Already have an account?<a href="/login"> Login here </a> </h4>
       </form>
     </div>
   );

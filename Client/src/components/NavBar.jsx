@@ -1,17 +1,15 @@
 //import React from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSession } from "../contexts/SessionContext"; //ADDED FROM SRAVYA
-import { NavLink, useNavigate } from "react-router-dom"; //ADDED FROM SRAVYA
+import { useSession } from "../contexts/SessionContext"; 
+import { NavLink, useNavigate } from "react-router-dom"; 
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import CreatePost from "../components/CreateBlog"; // Import modal component
+import CreatePost from "../components/CreateBlog";
 import "../assets/css/navbar.css";
 
 const NavBar = () => {
-  //const [hover, setHover] = useState(false);
-  const { user, logout, showCreateModal, setShowCreateModal } = useSession(); //ADDED FROM SRAVYA
-  const navigate = useNavigate(); //ADDED FROM SRAVYA
-
+  const { user, logout, showCreateModal, setShowCreateModal } = useSession(); 
+  const navigate = useNavigate(); 
   const handleCreateBlog = () => {
     if (!user) {
       navigate("/login", { state: { fromCreate: true } });
@@ -34,7 +32,6 @@ const NavBar = () => {
         {/*<Navbar.Brand href="#home">*/}
         <Navbar.Brand as={NavLink} to="/">
           {" "}
-          {/* //ADDED FROM SRAVYA */}
           <img src="/logo-sm.png" alt="branding" style={styles.brand} />
           <span style={styles.span}>FIND YOUR HAPPY PLACE</span>
         </Navbar.Brand>
@@ -56,17 +53,14 @@ const NavBar = () => {
               HOME
             </Nav.Link>
 
+            <Nav.Link as={NavLink} to="/about">
+              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
+              ABOUT
+            </Nav.Link>
+
             <Nav.Link as={NavLink} to="/blog">
               BLOG
             </Nav.Link>
-
-            {/* <Nav.Link
-              onClick={() => onSetPage("cities")}
-              active={selectedPage === "cities"}
-              style={selectedPage === "cities" ? styles.activeLink : undefined}
-            >
-              CITIES
-            </Nav.Link> */}
 
             <NavDropdown title="CATEGORIES" id="categories-dropdown">
               <NavDropdown.Item as={NavLink} to="/blog?category=Adventure">
@@ -110,27 +104,11 @@ const NavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
 
-            {/*    <Nav.Link
-              onClick={() => onSetPage("categories")}
-              active={selectedPage === "categories"}
-              style={
-                selectedPage === "categories" ? styles.activeLink : undefined
-              }
-            >
-              {/*<img src="" alt="Portfolio" style={styles.icons} />}
-              CATEGORIES
-            </Nav.Link>
- */}
-            <Nav.Link as={NavLink} to="/about">
-              {/*<img src="" alt="Portfolio" style={styles.icons} />*/}
-              ABOUT
-            </Nav.Link>
+            
 
             {/* Divider */}
             <div
               style={{
-                //borderLeft: "1px solid #ccc",
-                //height: "40px",
                 margin: "0 22px",
               }}
             />
@@ -180,12 +158,6 @@ const NavBar = () => {
                   REGISTER
                 </Nav.Link>
               </>
-              // {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
-              //   LOGIN
-              // </Nav.Link>
-              // <Nav.Link as={Link} to="/register" className="btn btn-primary">
-              //   REGISTER
-              // </Nav.Link> */}
             )}
           </Nav>
         </Navbar.Collapse>
@@ -240,11 +212,6 @@ const styles = {
     transform: "translateY(67px)",
     transition: "transform 0.3s ease",
     marginBottom: "0px",
-  },
-
-  brand: {
-    //width: "70px",
-    //height: "70px",
   },
   toggler: {
     background: "#a05b2e",
