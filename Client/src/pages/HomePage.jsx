@@ -58,7 +58,10 @@ import "../App.css";
 
 const quotes = [
   { text: "“Writing is the painting of the voice.”", author: "— Voltaire" },
-  { text: "“The art of blogging is telling stories that connect.”", author: "— James" },
+  {
+    text: "“The art of blogging is telling stories that connect.”",
+    author: "— James",
+  },
   { text: "“Good writing begins with good reading.”", author: "— Sarah" },
 ];
 
@@ -82,7 +85,7 @@ const HomePage = () => {
             <div className="backgroundImg"></div>
           </div>
           <div className="centered myfontL">
-            WELCOME <br />
+            WELCOME HOME <br />
             <p className="myfontS">The Gurus blog page...</p>
           </div>
         </div>
@@ -107,8 +110,8 @@ const HomePage = () => {
               </div>
               <div className="flip-card-back">
                 <p>
-                  Explore hidden gems and unforgettable journeys that will inspire
-                  your wanderlust.
+                  Explore hidden gems and unforgettable journeys that will
+                  inspire your wanderlust.
                 </p>
               </div>
             </div>
@@ -123,8 +126,8 @@ const HomePage = () => {
               </div>
               <div className="flip-card-back">
                 <p>
-                  Discover delicious recipes and culinary secrets from around the
-                  world.
+                  Discover delicious recipes and culinary secrets from around
+                  the world.
                 </p>
               </div>
             </div>
@@ -139,8 +142,8 @@ const HomePage = () => {
               </div>
               <div className="flip-card-back">
                 <p>
-                  Stay updated with the latest innovations in technology and digital
-                  lifestyle.
+                  Stay updated with the latest innovations in technology and
+                  digital lifestyle.
                 </p>
               </div>
             </div>
@@ -151,12 +154,19 @@ const HomePage = () => {
       {/* Our Goal / Ambition */}
       <div className="ambition-section">
         <h2>Our Ambition</h2>
-        <p>
-          At Gurus Blog, our mission is to create a community of thinkers,
+        <p className="wordy-text">
+          "At Gurus Blog, our mission is to create a community of thinkers,
           dreamers, and storytellers. We aim to inspire, educate, and empower
-          our readers through diverse topics and engaging stories.
+          our readers through diverse topics and engaging stories."
         </p>
-        <a href="/about" className="btn-more">Read More</a>
+        <br></br>
+        <a href="/about" className="btn-more">
+          Read More...
+        </a>
+        <br></br>
+        <br></br>
+        <br></br>
+        <hr className="lineBreaker"></hr>
       </div>
     </>
   );

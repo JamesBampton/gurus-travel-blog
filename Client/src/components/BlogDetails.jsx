@@ -252,7 +252,9 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/blogs/${id}`);
+        const response = await axios.get(
+          `http://localhost:3001/api/blogs/${id}`
+        );
         setBlog(response.data);
         console.log("Fetched blog:", response.data);
       } catch (err) {
@@ -270,7 +272,7 @@ const BlogDetails = () => {
       blog_title: blog.blog_title,
       blog_content: blog.blog_content,
       thumbnail_image: blog.thumbnail_image || "",
-      category_id: blog.category_id
+      category_id: blog.category_id,
     });
     setIsEditing(true);
     setAlert("");
@@ -332,7 +334,6 @@ const BlogDetails = () => {
     }
   };
 
-
   const cancelEdit = () => {
     setIsEditing(false);
     setAlert("");
@@ -387,7 +388,6 @@ const BlogDetails = () => {
       setAlert(err.response?.data?.message || "Error deleting blog.");
     }
   };
-
 
   // --- Add Comment ---
   /*const addComment = async (commentContent) => {
@@ -448,7 +448,6 @@ const BlogDetails = () => {
     }
   };
 
-
   // --- Delete Comment ---
   /* const deleteComment = async (commentId, commentUserId) => {
      if (!user) return;
@@ -482,7 +481,7 @@ const BlogDetails = () => {
       return;
     }
 
-    console.log(user.id, commentUserId)
+    console.log(user.id, commentUserId);
     if (user.id !== commentUserId) {
       setAlert("You are not authorized to delete this comment.");
       setTimeout(() => setAlert(""), 3000);
@@ -513,7 +512,6 @@ const BlogDetails = () => {
     }
   };
 
-
   if (error) return <div className="error">{error}</div>;
   if (!blog) return <div>Loading...</div>;
 
@@ -528,7 +526,9 @@ const BlogDetails = () => {
           <input
             type="text"
             value={editData.blog_title}
-            onChange={(e) => setEditData({ ...editData, blog_title: e.target.value })}
+            onChange={(e) =>
+              setEditData({ ...editData, blog_title: e.target.value })
+            }
           />
         ) : (
           <h1>{blog.blog_title}</h1>
@@ -572,12 +572,13 @@ const BlogDetails = () => {
         )}
       </div>
 
-
       <div className="blog-content">
         {isEditing ? (
           <textarea
             value={editData.blog_content}
-            onChange={(e) => setEditData({ ...editData, blog_content: e.target.value })}
+            onChange={(e) =>
+              setEditData({ ...editData, blog_content: e.target.value })
+            }
           />
         ) : (
           <p>{blog.blog_content}</p>
