@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
-import Register from "./Register"
+import Register from "./Register";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -85,7 +85,9 @@ export default function Login() {
         <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
-        <h4>Don't have an account?<a href="/register"> Register here </a> </h4>
+        <p style={{ color: "#008000", fontSize: 16 }}>
+          Don't have an account?<a href="/register"> Register here </a>{" "}
+        </p>
       </form>
     </div>
   );
