@@ -44,6 +44,11 @@ const BlogPage = () => {
 
     fetchBlogs();
   }, [selectedCategory]);
+  // Called by CreatePost after a successful blog creation
+  const handleBlogCreated = (newBlog) => {
+    setBlogs((prevBlogs) => [newBlog, ...prevBlogs]); // Add new blog to top
+    setShowCreateModal(false); // close modal if using modal
+  };
 
   if (loading) {
     return (

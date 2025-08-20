@@ -17,6 +17,11 @@
   color: #666;
 }
 
+.centered {
+  position: relative;  
+  z-index: 1;          
+}
+
 /* Feature Cards */
 .feature-cards {
   display: flex;
