@@ -1,12 +1,19 @@
-/* Container */
+/* Blog container with background image */
 .blog-container {
-  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make all content appear above the background */
+.blog-container > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Alert messages */
@@ -36,17 +43,34 @@
 .blog-thumbnail {
   text-align: center;
   margin: 20px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+  max-height: 1000px; /* increased height for larger display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* placeholder background */
 }
 
 .blog-thumbnail img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container without distortion */
   border-radius: 12px;
+  transition: transform 0.3s ease;
 }
+
+/* Optional hover zoom effect */
+.blog-thumbnail img:hover {
+  transform: scale(1.05);
+}
+
 
 /* Blog Content */
 .blog-content {
-  font-size: 1.1em;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
   line-height: 1.6;
   color: #333;
   margin-bottom: 20px;
@@ -54,8 +78,7 @@
 
 /* Editable inputs */
 .blog-content textarea,
-.blog-header input,
-.blog-thumbnail input {
+.blog-header input{
   width: 100%;
   padding: 10px;
   font-size: 1em;
@@ -65,9 +88,10 @@
   resize: vertical;
 }
 
-/* Blog Actions */
+/* Blog Actions - center buttons */
 .blog-actions {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 30px;
 }
@@ -111,26 +135,29 @@
   margin-bottom: 20px;
 }
 
+/* Comment Items - stack and center */
 .comment-item {
   border-bottom: 1px solid #eee;
   padding: 10px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .comment-item p {
-  margin: 0;
-  flex: 1;
+  margin: 0 0 5px 0;
+  font-size: 1.3rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.comment-author {
+.comment-item .comment-author {
   font-size: 0.85em;
   color: #666;
-  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
-/* Delete comment button */
+/* Delete comment button - centered below text */
 .delete-comment-btn {
   background-color: #dc3545;
   color: #fff;
@@ -138,8 +165,8 @@
   padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
-  margin-left: 10px;
   font-size: 0.8em;
+  margin: 0;
 }
 
 .delete-comment-btn:hover {
@@ -176,4 +203,16 @@
 .login-message {
   font-style: italic;
   color: #777;
+  text-align: center;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
 }
