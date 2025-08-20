@@ -35,8 +35,9 @@ export default App; */
 
 // NEW CODE FROM SRAVYA
 
-import React from "react";
+import React, {useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 import Layout from "./components/Layout";
 import Login from "./components/Login";
@@ -48,7 +49,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogDetails from "./components/BlogDetails";
 import CategoriesPage from "./pages/CategoriesPage";
 
-function App() {
+ function App() {
   return (
     <Layout>
       <Routes>

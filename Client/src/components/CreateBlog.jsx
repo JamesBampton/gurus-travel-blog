@@ -4,14 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-export default function CreatePost(props) {
-  const { user } = useSession();
+export default function CreatePost({onSuccess, onClose}) {
+  //const { user, setShowCreateModal, token} = useSession();
+  const {user}=useSession();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  //const { onSuccess, onClose } = props;
   const [category, setCategory] = useState(""); // category ID
   const [thumbnail, setThumbnail] = useState("");
   const [categories, setCategories] = useState([]);
+  
   // Redirect if not logged in
   useEffect(() => {
     if (!user) {
@@ -59,9 +62,8 @@ export default function CreatePost(props) {
         }
       );
       console.log("Blog Created:", response.data);
-      //navigate("/blogs"); // redirect to home or blog list
-      props.onSuccess();
-      
+       if (typeof onSuccess === "function") onSuccess(response.data);
+      if (typeof onClose === "function") onClose();
     } catch (error) {
       console.error("Failed to create blog:", error);
       alert("Failed to create blog post.");

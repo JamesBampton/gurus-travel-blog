@@ -85,6 +85,14 @@
   opacity: 0.9;
 }
 
+
+.centered2 {
+  position: relative;  
+  z-index: 1; 
+  /*transform: translateZ(0);    */      
+}
+
+
 .blog-actions button:first-child {
   background-color: #007bff;
   color: #fff;

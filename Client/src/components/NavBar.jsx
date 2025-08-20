@@ -215,10 +215,12 @@ const NavBar = () => {
               &times;
             </button>
             <CreatePost
-              onSuccess={() => {
+              onSuccess={(newBlog) => {
                 setShowCreateModal(false); // close modal
                 navigate("/blog");        // redirect to BlogPage.jsx
-              }}/>
+              }}
+              onClose={() => setShowCreateModal(false)}
+              />
           </div>
         </div>
       )}
