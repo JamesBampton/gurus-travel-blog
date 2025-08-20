@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext"; //ADDED FROM SRAVYA
 import { NavLink, useNavigate } from "react-router-dom"; //ADDED FROM SRAVYA
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import  CreatePost from "../components/CreateBlog"; // Import modal component
+import CreatePost from "../components/CreateBlog"; // Import modal component
 import "../assets/css/navbar.css";
 
 const NavBar = () => {
   //const [hover, setHover] = useState(false);
-  const { user, logout,showCreateModal, setShowCreateModal } = useSession(); //ADDED FROM SRAVYA
+  const { user, logout, showCreateModal, setShowCreateModal } = useSession(); //ADDED FROM SRAVYA
   const navigate = useNavigate(); //ADDED FROM SRAVYA
-  
 
   const handleCreateBlog = () => {
     if (!user) {
@@ -21,9 +20,12 @@ const NavBar = () => {
     }
   };
 
-
   return (
-    <Navbar expand="lg" style={styles.navbar} className="navbar navbar-light">
+    <Navbar
+      expand="lg"
+      style={styles.navbar}
+      className="nav-zindex navbar navbar-light"
+    >
       <Container
         id="container"
         className="d-flex justify-content-between align-items-center"
@@ -33,11 +35,7 @@ const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/">
           {" "}
           {/* //ADDED FROM SRAVYA */}
-          <img
-            src="/logo-sm.png"
-            alt="branding"
-            style={styles.brand}
-          />
+          <img src="/logo-sm.png" alt="branding" style={styles.brand} />
           <span style={styles.span}>FIND YOUR HAPPY PLACE</span>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -136,22 +134,23 @@ const NavBar = () => {
                 margin: "0 22px",
               }}
             />
-             {/* Create Blog button - always visible */}
+            {/* Create Blog button - always visible */}
             <div className="d-flex align-items-center ms-lg-3 gap-2 mt-2 mt-lg-0"></div>
             <button
               onClick={handleCreateBlog}
-               //className="btn btn-success me-2 mb-2"
+              //className="btn btn-success me-2 mb-2"
               className="btn btn-outline-primary"
-              style={{ marginRight: "15px" }}
-
-              
+              style={{ marginRight: "15px", textWrap: "nowrap" }}
             >
               CREATE BLOG
             </button>
             {/* Conditional rendering for login/logout */}
             {user ? (
               <>
-                <span  className="btn btn-outline-succes " style={{ color: "#008000" }} >
+                <span
+                  className="btn btn-outline-succes "
+                  style={{ color: "#008000" }}
+                >
                   Welcome, {user.username}!
                 </span>
                 <button
@@ -159,44 +158,39 @@ const NavBar = () => {
                     logout();
                     navigate("/login");
                   }}
-                     className="btn btn-outline-danger"
-                 
-                  
+                  className="btn btn-outline-danger"
                 >
                   LOGOUT
                 </button>
               </>
             ) : (
               <>
-            <Nav.Link
-              as={NavLink}
-              to="/login"
-               className="btn btn-outline-success"
-            >
-              LOGIN
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/register"
-              className="btn btn-outline-success ms-2 mb-2 mt-2"
-            >
-              REGISTER
-
-            </Nav.Link>
-          </>
-            // {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
-            //   LOGIN
-            // </Nav.Link>
-            // <Nav.Link as={Link} to="/register" className="btn btn-primary">
-            //   REGISTER
-            // </Nav.Link> */}
+                <Nav.Link
+                  as={NavLink}
+                  to="/login"
+                  className="btn btn-outline-success"
+                >
+                  LOGIN
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/register"
+                  className="btn btn-outline-success ms-2 mb-2 mt-2"
+                >
+                  REGISTER
+                </Nav.Link>
+              </>
+              // {/* <Nav.Link as={Link} to="/login" className="btn btn-dark me-2">
+              //   LOGIN
+              // </Nav.Link>
+              // <Nav.Link as={Link} to="/register" className="btn btn-primary">
+              //   REGISTER
+              // </Nav.Link> */}
             )}
-            
-
           </Nav>
         </Navbar.Collapse>
       </Container>
-       {/* Modal for Create Blog */}
+      {/* Modal for Create Blog */}
       {showCreateModal && (
         <div
           className="modalOverlay"
@@ -217,8 +211,9 @@ const NavBar = () => {
             <CreatePost
               onSuccess={() => {
                 setShowCreateModal(false); // close modal
-                navigate("/blog");        // redirect to BlogPage.jsx
-              }}/>
+                navigate("/blog"); // redirect to BlogPage.jsx
+              }}
+            />
           </div>
         </div>
       )}

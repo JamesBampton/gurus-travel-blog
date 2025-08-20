@@ -209,7 +209,6 @@ import AboutSection from "../components/AboutPage";
 const AboutPage = () => {
   return (
     <>
-  
       <div id="dashboard" className="content2 grid-containerink">
         <div className="ianda1">
           <div className="w3-padding floating-box-test" id="myHeader">
@@ -246,16 +245,19 @@ const AboutPage = () => {
           <h2>Our Vision</h2>
           <p>
             We envision a platform where creativity and knowledge meet, allowing
-            everyone to grow and share their experiences. Our values are centered
-            around learning, inspiration, and community.
+            everyone to grow and share their experiences. Our values are
+            centered around learning, inspiration, and community.
           </p>
         </div>
       </section>
+      <br></br>
 
       {/* Optional AboutSection Component */}
       <AboutSection />
+      <br></br>
 
       {/* Footer stays intact as in your project */}
+      <hr className="lineBreaker"></hr>
     </>
   );
 };

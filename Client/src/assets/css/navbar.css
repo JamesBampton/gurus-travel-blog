@@ -1,6 +1,5 @@
 .navbar {
   position: sticky;
-  
 }
 nav a {
   padding: 30px;
@@ -24,4 +23,8 @@ nav a {
 .active-nav {
   color: white !important;
   background-color: #11b944 !important;
+}
+
+.nav-zindex {
+  z-index: 1000;
 }

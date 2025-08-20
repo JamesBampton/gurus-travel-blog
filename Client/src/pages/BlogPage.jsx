@@ -345,82 +345,84 @@ const BlogPage = () => {
     <>
       {/* Header */}
       <div id="dashboard" className="content2 grid-containerink">
-        <div className="ianda1">
+        <div className="ianda">
           <div className="w3-padding floating-box-test" id="myHeader">
             <div className="backgroundImgblog"></div>
           </div>
-          <div className="centered2 myfontL">
-            ARTICLES
+          <div className="centered myfontL">
+            BLOG ARTICLES
             <p className="myfontS">From travel Gurus...</p>
           </div>
 
-          
-      {/* Create Blog Modal */}
-      {isModalOpen && (
-        <div
-          className="modalOverlay"
-          onClick={() => setIsModalOpen(false)}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 999,
-          }}
-        >
-          <div
-            className="modalContent"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "8px",
-              maxWidth: "500px",
-              width: "100%",
-            }}
-          >
-            <button
+          {/* Create Blog Modal */}
+          {isModalOpen && (
+            <div
+              className="modalOverlay"
               onClick={() => setIsModalOpen(false)}
               style={{
-                float: "right",
-                background: "transparent",
-                border: "none",
-                fontSize: "20px",
-                cursor: "pointer",
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: 999,
               }}
             >
-              &times;
-            </button>
-            <CreatePost setBlogs={setBlogs} setIsModalOpen={setIsModalOpen} />
+              <div
+                className="modalContent"
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  background: "#fff",
+                  padding: "20px",
+                  borderRadius: "8px",
+                  maxWidth: "500px",
+                  width: "100%",
+                }}
+              >
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  style={{
+                    float: "right",
+                    background: "transparent",
+                    border: "none",
+                    fontSize: "20px",
+                    cursor: "pointer",
+                  }}
+                >
+                  &times;
+                </button>
+                <CreatePost
+                  setBlogs={setBlogs}
+                  setIsModalOpen={setIsModalOpen}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Blog List */}
+
+          {selectedCategory && (
+            <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
+              Showing blogs for:{" "}
+              <span style={{ color: "#009688" }}>{selectedCategory}</span>
+            </h3>
+          )}
+
+          <div className="content">
+            {Array.isArray(blogs) && blogs.length > 0 ? (
+              blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+            ) : (
+              <p style={{ textAlign: "center" }}>
+                No blogs available
+                {selectedCategory ? ` for "${selectedCategory}"` : ""}.
+              </p>
+            )}
           </div>
-        </div>
-      )}
-
-      {/* Blog List */}
-
-      {selectedCategory && (
-        <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
-          Showing blogs for:{" "}
-          <span style={{ color: "#009688" }}>{selectedCategory}</span>
-        </h3>
-      )}
-
-      <div className="content">
-        {Array.isArray(blogs) && blogs.length > 0 ? (
-          blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
-        ) : (
-          <p style={{ textAlign: "center" }}>
-            No blogs available
-            {selectedCategory ? ` for "${selectedCategory}"` : ""}.
-          </p>
-        )}
-      </div>
-      {/* Create Blog Button */}
+          {/* Create Blog Button */}
           {isLoggedIn && (
             <div style={{ textAlign: "center", margin: "20px 0" }}>
               <button
@@ -434,9 +436,9 @@ const BlogPage = () => {
         </div>
       </div>
 
-
       <br />
       <br />
+      <hr className="lineBreaker"></hr>
     </>
   );
 };
