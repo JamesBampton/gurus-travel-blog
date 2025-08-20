@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
+import Login from "./Login";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -22,7 +23,9 @@ export default function Register() {
       return false;
     }
     if (!usernameRegex.test(username)) {
-      setError("Username must be at least 3 characters and contain only letters, numbers, or underscores.");
+      setError(
+        "Username must be at least 3 characters and contain only letters, numbers, or underscores."
+      );
       return false;
     }
     if (!emailRegex.test(email)) {
@@ -43,11 +46,14 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3001/users/register", {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:3001/users/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
 
       const { user, token } = response.data;
 
@@ -99,6 +105,9 @@ export default function Register() {
         <button type="submit" disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </button>
+        <p style={{ color: "#008000", fontSize: 16 }}>
+          Already have an account?<a href="/login"> Login here </a>{" "}
+        </p>
       </form>
     </div>
   );

@@ -198,15 +198,15 @@ p {
   /* top: 130%;
   left: 50%;*/
   padding: 5px;
-  font-size: 30px;
+  font-size: 40px;
   font-family: Montserrat, sans-serif;
-  transform: translate(0%, -700px);
+  transform: translate(0%, -950px);
   color: #024102;
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Blur effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
   /*border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for a polished look */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 2px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
 }
 /* Centered text inside container with darker backgrounds*/
@@ -301,4 +301,13 @@ p {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.ianda1 {
+  max-height: 1260px;
+}
+
+.lineBreaker {
+  margin-left: 12%;
+  margin-right: 12%;
 }
