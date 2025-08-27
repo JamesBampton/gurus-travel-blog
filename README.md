@@ -1,8 +1,8 @@
 ## Project
 
-Final Project - By Guru's of teh Apocolypse.
+Final Project - By Guru's of the Apocolypse.
 
-Project Name - Gurus Travel Blog
+Project Name - Gurus Travel Blog.
 
 ---
 
@@ -12,14 +12,22 @@ Create design and implementation of our Full Stack Web Application, built using 
 
 Key Technoloiges include:
 
-React - JavaScript library for building user interfaces used a component based architecture
-NodeJs - run JavaScript outside the browser
-Sequelize - Creating DB models and connectiong to a backend DB
-JWT - JSON Web Token for authentication
+React - JavaScript library for building user interfaces used a component based architecture.
+
+NodeJs - run JavaScript outside the browser.
+
+Sequelize - Creating DB models and connectiong to a backend DB.
+
+JWT - JSON Web Token for authentication.
+
 Vite - Front end build tool, dynamic updates to improve development process.
-Multer - For stroring files on file system and displaying
-Bootstrap - React boostrap, use pre defined css styling
+
+Multer - For stroring files on file system and displaying.
+
+Bootstrap - React boostrap, use pre defined css styling.
+
 HTML
+
 CSS
 
 Application must be responsive and include user input such as forms, API integration to exchange data between Backend and Frontend, implement user registration and authentication (such as tokens).
@@ -28,25 +36,47 @@ Clean well designed Front end, that is intuitive and user friendly, with the a w
 
 ## Install
 
-To install the application install the following
+To install the application install the following using [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager) package manager
 
+```bash
 npm install
-npm install bcrypt
-npm install dotenv
-npm install express
-nmp install jsonwebtoekn
-npm install multer
-mpm install mysql2
-npm install nodemon
-npm install sequelize
+```
 
---
+```bash
+npm install bcrypt
+```
+
+```bash
+npm install dotenv
+```
+
+```bash
+npm install express
+```
+
+```bash
+nmp install jsonwebtoekn
+```
+
+```bash
+npm install multer
+```
+
+```bash
+mpm install mysql2
+```
+
+```bash
+npm install nodemon
+```
+
+```bash
+npm install sequelize
+```
+
 To run backend : npm run start
 
---
 To run front end: npm run dev
-
----
 
 To see databse : npm run seed
 (Adjust the .env file to your local db password, set ports if needed in server.jsx)
@@ -59,9 +89,15 @@ A user can navigate and view blogs without registration. If user would like to c
 
 ---
 
+## Future Developments
+
+Add admin accounts to manage the application, blogs.
+Allow users to delete all their own comments and not just the last comments they have entered.
+Look to create a unique angle for the blog, for example focus on travellers with dogs or travellers on bikes only. At the moment the blog is very generic and it may be better narrowed down to a specific group of travellers.
+
 ## License
 
-## NONE
+No licenses required
 
 ## Contact
 
