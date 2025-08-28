@@ -45,15 +45,6 @@ export default function CreatePost({onSuccess, onClose}) {
       const response = await axios.post(
         "http://localhost:3001/api/blogs",
         formData,
-
-        //Removed as this is being taken care of above
-        /* {
-          blog_title: title,
-          blog_content: content,
-          category_id: parseInt(category),
-          user_id: user.id,
-          thumbnail_image: thumbnail || "https://example.com/default-thumbnail.jpg",
-        }, */
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,7 +52,7 @@ export default function CreatePost({onSuccess, onClose}) {
           },
         }
       );
-      console.log("Blog Created:", response.data);
+      //console.log("Blog Created:", response.data);
        if (typeof onSuccess === "function") onSuccess(response.data);
       if (typeof onClose === "function") onClose();
     } catch (error) {

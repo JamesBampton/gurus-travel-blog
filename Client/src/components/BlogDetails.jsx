@@ -26,7 +26,7 @@ const BlogDetails = () => {
           `http://localhost:3001/api/blogs/${id}`
         );
         setBlog(response.data);
-        console.log("Fetched blog:", response.data);
+        //console.log("Fetched blog:", response.data);
       } catch (err) {
         setError("Failed to fetch blog details.");
         console.error(err);
@@ -46,10 +46,10 @@ const BlogDetails = () => {
     });
     setIsEditing(true);
     setAlert("");
-    console.log("Start editing:", editData);
+    //console.log("Start editing:", editData);
   };
   const saveEdit = async () => {
-    console.log("Saving edit:", editData);
+    //console.log("Saving edit:", editData);
 
     const token = localStorage.getItem("authToken");
     if (!token) {
@@ -71,7 +71,7 @@ const BlogDetails = () => {
       setBlog((prev) => ({ ...prev, ...editData }));
       setIsEditing(false);
       setAlert("Blog updated successfully!");
-      console.log("Edit saved:", response.data);
+      //console.log("Edit saved:", response.data);
 
       // Auto-hide alert
       setTimeout(() => setAlert(""), 3000);
@@ -117,7 +117,7 @@ const BlogDetails = () => {
     }
   };
   const addComment = async (commentContent) => {
-    console.log("Adding comment:", commentContent);
+    //console.log("Adding comment:", commentContent);
 
     const token = localStorage.getItem("authToken");
     if (!token) {
@@ -166,7 +166,7 @@ const BlogDetails = () => {
       return;
     }
 
-    console.log("Deleting comment ID:", commentId);
+    //console.log("Deleting comment ID:", commentId);
 
     try {
       await axios.delete(`http://localhost:3001/api/comments/${commentId}`, {
@@ -182,18 +182,18 @@ const BlogDetails = () => {
       }));
 
       setAlert("Comment deleted!");
-      setTimeout(() => setAlert(""), 3000);
+      setTimeout(() => setAlert(""), 1000);
     } catch (err) {
       console.error(err);
       setAlert("Error deleting comment.");
-      setTimeout(() => setAlert(""), 3000);
+      setTimeout(() => setAlert(""), 1000);
     }
   };
 
   if (error) return <div className="error">{error}</div>;
   if (!blog) return <div>Loading...</div>;
 
-  console.log("Rendering blog details for:", blog.blog_title);
+  //console.log("Rendering blog details for:", blog.blog_title);
 
   return (
     <div className="blog-container">
@@ -278,7 +278,7 @@ const BlogDetails = () => {
                     className="delete-comment-btn"
                     //onClick={() => deleteComment(comment.id, comment.user_id)}
                     onClick={() => {
-                      console.log("Button clicked");
+                      //console.log("Button clicked");
                       deleteComment(comment.id, comment.user_id);
                     }}
                   >

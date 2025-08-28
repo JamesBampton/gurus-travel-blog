@@ -1,4 +1,3 @@
-// HomePage.js
 import React from "react";
 import "../assets/css/myStyles.css";
 import "../assets/css/cards.css";
@@ -9,7 +8,6 @@ import "../assets/css/carousel.css";
 import "../assets/css/cardspin-test.css";
 import "../assets/css/flip.css";
 
-// ...existing code...
 const CategoriesPage = () => {
   return (
     <>
